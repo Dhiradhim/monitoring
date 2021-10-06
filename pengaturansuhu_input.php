@@ -43,16 +43,15 @@ include('top.html');
                       <div class="form-group">
 					  <?php
 						include('koneksi.php');
-						$query = mysqli_query($con, "SELECT nama_produk FROM produk ORDER BY id") or die(mysqli_connect_error());
+						$query = mysqli_query($con, "SELECT * FROM produk ORDER BY id") or die(mysqli_connect_error());
 						$row = mysqli_fetch_assoc($query);
-						$query2 = mysqli_query($con, "SELECT id_produk FROM produk ORDER BY id") or die(mysqli_connect_error());
-						$row2 = mysqli_fetch_assoc($query2);
 					  ?>
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Nama Produk
 							</label>
 							<div class="col-md-3 col-sm-3 col-xs-4">
-							<select class="form-control" name="nama_produk">
+							<select class="form-control" name="nama_produk" id="nama_produk">
+								<option value="" disabled selected>-</option>
 								<?php do { ?>
 								<option value="<?=$row['nama_produk'];?>"><?=$row['nama_produk'];?></option>
 								<?php } while ($row= mysqli_fetch_assoc($query));?>
@@ -60,17 +59,37 @@ include('top.html');
 							</div>
 					  </div>
 					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_produk">
 							No. Batch
 							</label>
 							<div class="col-md-2 col-sm-3 col-xs-4">
-							<select class="form-control" name="id_produk">
-								<?php do { ?>
-								<option value="<?=$row2['id_produk'];?>"><?=$row2['id_produk'];?></option>
-								<?php 
-								} while ($row2= mysqli_fetch_assoc($query2)); 
-								?>
+							<select class="form-control" name="id_produk" id="id_produk">
+							
 							</select>
+							
+							<script>
+   
+							$("#nama_produk").change(function(){
+						   
+								var idp = $("#nama_produk").val();
+							   
+								$.ajax({
+									type: "POST",
+									dataType: "html",
+									url: "cari_produk.php",
+									data: "nama_produk="+idp,
+									success: function(msg){
+										if(msg == ''){
+											alert('Tidak ada data Produk');
+										}
+										else{
+											$("#id_produk").html(msg);                                                     
+										}
+								}
+								});    
+							});
+						</script>
+							
 							</div>
 					  </div>
 					  <div class="form-group">
@@ -91,9 +110,11 @@ include('top.html');
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
 							  	<select class="form-control" name="ukuran">
-								<option value=""></option>
-								<option value=""></option>
-								<option value=""></option>
+								<option value="" disabled selected>-</option>
+								<option value="12 x 250 gr">12 x 250 gr</option>
+								<option value="3 x 1 Kg">3 x 1 Kg</option>
+								<option value="4 x 1 Kg">4 x 1 Kg</option>
+								<option value="1 x 5 Kg">1 x 5 Kg</option>
 							</select>
 							</div>
 					  </div>
@@ -102,7 +123,12 @@ include('top.html');
 							Zona 1
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
-							  <input type="text" name="zona_1" required="required" class="form-control col-md-7 col-xs-12" autofocus>
+							<select class="form-control" name="zona_1" id="zona_1">
+								<option value="" disabled selected>-</option>
+								<?php $c1=1; do { ?>
+								<option value="<?=$c1;?>"><?=$c1;?></option>
+								<?php $c1++; } while ($c1<31);?>
+							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
@@ -110,7 +136,12 @@ include('top.html');
 							Zona 2
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
-							  <input type="text" name="zona_2" required="required" class="form-control col-md-7 col-xs-12" autofocus>
+							<select class="form-control" name="zona_2" id="zona_2">
+								<option value="" disabled selected>-</option>
+								<?php $c2=1; do { ?>
+								<option value="<?=$c1;?>"><?=$c2;?></option>
+								<?php $c2++; } while ($c2<31);?>
+							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
@@ -118,7 +149,12 @@ include('top.html');
 							Zona 3
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
-							  <input type="text" name="zona_3" required="required" class="form-control col-md-7 col-xs-12" autofocus>
+							<select class="form-control" name="zona_3" id="zona_3">
+								<option value="" disabled selected>-</option>
+								<?php $c3=1; do { ?>
+								<option value="<?=$c1;?>"><?=$c3;?></option>
+								<?php $c3++; } while ($c3<31);?>
+							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
@@ -126,7 +162,12 @@ include('top.html');
 							Zona 4
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
-							  <input type="text" name="zona_4" required="required" class="form-control col-md-7 col-xs-12" autofocus>
+							<select class="form-control" name="zona_4" id="zona_4">
+								<option value="" disabled selected>-</option>
+								<?php $c4=1; do { ?>
+								<option value="<?=$c1;?>"><?=$c4;?></option>
+								<?php $c4++; } while ($c4<31);?>
+							</select>
 							</div>
 					  </div>
                       <div class="form-group">

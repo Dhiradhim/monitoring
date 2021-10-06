@@ -94,7 +94,7 @@ include('side1.html');?>
                         <tbody>
 						<?php
 						include("koneksi.php");
-						$query = mysqli_query($con, "SELECT * FROM produk ORDER BY id") or die(mysqli_connect_error());
+						$query = mysqli_query($con, "SELECT * FROM pengaturan_suhu") or die(mysqli_connect_error());
 						$row = mysqli_fetch_assoc($query);
 						$x = mysqli_num_rows($query);
 						$count = 1;

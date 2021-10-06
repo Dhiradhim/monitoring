@@ -52,7 +52,8 @@ include('side1.html');?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="produk_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>
+                    <li><a href="produk_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input Produk</a></li>
+                    <li><a href="batch_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input No. Batch</a></li>
                   </ul>
                 </li>
 				
@@ -88,7 +89,7 @@ include('side1.html');?>
                         <tbody>
 						<?php
 						include("koneksi.php");
-						$query = mysqli_query($con, "SELECT * FROM produk ORDER BY id") or die(mysqli_connect_error());
+						$query = mysqli_query($con, "SELECT * FROM batch ORDER BY id") or die(mysqli_connect_error());
 						$row = mysqli_fetch_assoc($query);
 						$x = mysqli_num_rows($query);
 						$count = 1;
@@ -97,7 +98,7 @@ include('side1.html');?>
 							<tr>
 								<td><div align="center"><?php echo $count; ?></div></td>
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
-								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
+								<td><div align="center"><?php echo $row['no_batch']; ?></div></td>
 								<td>
 								<div align="center">
 								<a href="produk_view.php?id=<?=$row['id']?>" title="View"><img src="images/application.png" width="16" height="16" /></a>  

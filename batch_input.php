@@ -3,7 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Input Produk </title>
+<title> Input No. Batch</title>
 <?php
 include('koneksi.php');
 ?>
@@ -32,7 +32,7 @@ include('top.html');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Produk</h3>
+                <h3>Input No. Batch</h3>
               </div>
             </div>
 
@@ -42,13 +42,31 @@ include('top.html');
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="produk_save.php" method="post">
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="batch_save.php" method="post">
                       <div class="form-group">
+							<?php
+						include('koneksi.php');
+						$query = mysqli_query($con, "SELECT * FROM produk ORDER BY id") or die(mysqli_connect_error());
+						$row = mysqli_fetch_assoc($query);
+					  ?>
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Nama Produk
 							</label>
 							<div class="col-md-3 col-sm-3 col-xs-4">
-							<input type="text" name="nama_produk" required="required" class="form-control col-md-7 col-xs-12" autofocus>
+							<select class="form-control" name="nama_produk" id="nama_produk">
+								<option value="" disabled selected>-</option>
+								<?php do { ?>
+								<option value="<?=$row['nama_produk'];?>"><?=$row['nama_produk'];?></option>
+								<?php } while ($row= mysqli_fetch_assoc($query));?>
+							</select>
+					  </div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							No. Batch
+							</label>
+							<div class="col-md-3 col-sm-3 col-xs-4">
+							  <input type="text" name="no_batch" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
                       <div class="form-group">
