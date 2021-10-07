@@ -39,7 +39,7 @@ include('top.html');
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="produk_save.php" method="post">
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="berattimbangan_save.php" method="post">
                       <div class="form-group">
 					  <?php
 						include('koneksi.php');
@@ -97,7 +97,7 @@ include('top.html');
 							Shift
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-							  	<select class="form-control" name="ukuran">
+							  	<select class="form-control" name="shift">
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>

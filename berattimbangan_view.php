@@ -3,10 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Data Berat Timbangan </title>
-<?php
-include('koneksi.php');
-?>
+<title> Input Berat Timbangan </title>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function(){
@@ -24,48 +21,15 @@ $(document).ready(function(){
     <div class="container body">
       <div class="main_container">
 <?php
-include('side1.html');?>
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-
-              <ul class="nav navbar-nav navbar-right">
-
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Account
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-					<li><a href="profile.php"><i class="fa fa-user pull-right"></i>Profile</a></li>
-                    <li><a href="changepw.php"><i class="fa fa-gear pull-right"></i>Change Password</a></li>
-                    <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
-                  </ul>
-                </li>
-				
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Menu
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="berattimbangan_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>
-                  </ul>
-                </li>
-				
-              </ul>
-            </nav>
-          </div>
-        </div>
+include('side1.html');
+include('top.html');
+?>
         <!-- /page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data Berat Timbangan</h3>
+                <h3>Input Berat Timbangan</h3>
               </div>
             </div>
 
@@ -75,14 +39,56 @@ include('side1.html');?>
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<table class="table" id="datatable-buttons">
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="berattimbangan_save.php" method="post">
+                      <div class="form-group">
+					  <?php
+						include('koneksi.php');
+						$nama_produk=$_GET['nama_produk'];
+						$id_produk=$_GET['id_produk'];
+						$tanggal_berat_timbangan=$_GET['tanggal_berat_timbangan'];
+						$shift=$_GET['shift'];
+						$q = "SELECT * FROM berat_timbangan WHERE nama_produk='$nama_produk' AND id_produk='$id_produk' AND tanggal_berat_timbangan='$tanggal_berat_timbangan' AND shift='$shift'";
+						$query = mysqli_query($con, $q) or die(mysqli_connect_error());
+						$row = mysqli_fetch_assoc($query);
+					  ?>
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Nama Produk
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							  <input type="text" name="nama_produk" class="form-control col-md-7 col-xs-12" value="<?=$row['nama_produk'];?>" disabled>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_produk">
+							No. Batch
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							  <input type="text" name="id_produk" class="form-control col-md-7 col-xs-12" value="<?=$row['id_produk'];?>" disabled>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Shift
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							  <input type="text" name="shift" class="form-control col-md-7 col-xs-12" value="<?=$row['shift'];?>" disabled>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Tanggal
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							  <input type="text" name="tanggal_berat_timbangan" class="form-control col-md-7 col-xs-12" value="<?=$row['tanggal_berat_timbangan'];?>" disabled>
+							</div>
+					  </div>
+					  
+						<table class="table" id="datatable-buttons">
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>
-                                <th><div align="center">Nama Produk</div></th>
-                                <th><div align="center">No. batch</div></th>
-								<th><div align="center">Tanggal</div></th>
-                                <th><div align="center">Shift</div></th>
+                                <th><div align="center">Jam</div></th>
+                                <th><div align="center">Berat</div></th>
                                 <th><div align="center">Action</div></th>
                                 <th></th>
                             </tr>
@@ -90,18 +96,13 @@ include('side1.html');?>
                         <tbody>
 						<?php
 						include("koneksi.php");
-						$query = mysqli_query($con, "SELECT DISTINCT nama_produk,id_produk,tanggal_berat_timbangan,shift FROM berat_timbangan ORDER by id") or die(mysqli_connect_error());
-						$row = mysqli_fetch_assoc($query);
-						$x = mysqli_num_rows($query);
 						$count = 1;
 						
 						do { ?>
 							<tr>
 								<td><div align="center"><?php echo $count; ?></div></td>
-								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
-								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
-								<td><div align="center"><?php echo $row['tanggal_berat_timbangan']; ?></div></td>
-								<td><div align="center"><?php echo $row['shift']; ?></div></td>
+								<td><div align="center"><?php echo $row['jam_timbangan']; ?></div></td>
+								<td><div align="center"><?php echo $row['berat']; ?></div></td>
 								<td><div align="center">
 								<a href="berattimbangan_view.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
 								<a href="berattimbangan_edit.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
@@ -114,6 +115,8 @@ include('side1.html');?>
 						?>
                          </tbody>
 					</table>
+
+                    </form>
                   </div>
                 </div>
               </div>

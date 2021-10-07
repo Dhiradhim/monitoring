@@ -3,7 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Input Pengaturan Suhu </title>
+<title> Input Metal Detector </title>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function(){
@@ -29,7 +29,7 @@ include('top.html');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Pengaturan Suhu</h3>
+                <h3>Input Metal Detector</h3>
               </div>
             </div>
 
@@ -106,67 +106,80 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Ukuran
+							Awal
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-							  	<select class="form-control" name="ukuran">
-								<option value="" disabled selected>-</option>
-								<option value="12 x 250 gr">12 x 250 gr</option>
-								<option value="3 x 1 Kg">3 x 1 Kg</option>
-								<option value="4 x 1 Kg">4 x 1 Kg</option>
-								<option value="1 x 5 Kg">1 x 5 Kg</option>
+								<input type="checkbox" id="awal" name="awal" value="y"> Oke
 							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Zona 1
+							Tengah
 							</label>
-							<div class="col-md-1 col-sm-3 col-xs-4">
-							<select class="form-control" name="zona_1" id="zona_1">
-								<option value="" disabled selected>-</option>
-								<?php $c1=1; do { ?>
-								<option value="<?=$c1;?>"><?=$c1;?></option>
-								<?php $c1++; } while ($c1<31);?>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="tengah" name="tengah" value="y"> Oke
 							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Zona 2
+							Akhir
 							</label>
-							<div class="col-md-1 col-sm-3 col-xs-4">
-							<select class="form-control" name="zona_2" id="zona_2">
-								<option value="" disabled selected>-</option>
-								<?php $c2=1; do { ?>
-								<option value="<?=$c1;?>"><?=$c2;?></option>
-								<?php $c2++; } while ($c2<31);?>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="akhir" name="akhir" value="y"> Oke
 							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Zona 3
+							Jumlah Oke
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
-							<select class="form-control" name="zona_3" id="zona_3">
-								<option value="" disabled selected>-</option>
-								<?php $c3=1; do { ?>
-								<option value="<?=$c1;?>"><?=$c3;?></option>
-								<?php $c3++; } while ($c3<31);?>
-							</select>
+							  <input type="text" name="jumlah_oke" required="required" class="form-control col-md-7 col-xs-12" autofocus>
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Zona 4
+							Jumlah Not Oke
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
-							<select class="form-control" name="zona_4" id="zona_4">
+							  <input type="text" name="jumlah_not_oke" required="required" class="form-control col-md-7 col-xs-12" autofocus>
+							</div>
+					  </div>
+                      <div class="form-group">
+					  <?php
+						include('koneksi.php');
+						$query = mysqli_query($con, "SELECT * FROM login WHERE jabatan='Formen'") or die(mysqli_connect_error());
+						$row = mysqli_fetch_assoc($query);
+					  ?>
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Nama Formen
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							<select class="form-control" name="formen" id="formen">
 								<option value="" disabled selected>-</option>
-								<?php $c4=1; do { ?>
-								<option value="<?=$c1;?>"><?=$c4;?></option>
-								<?php $c4++; } while ($c4<31);?>
+								<?php do { ?>
+								<option value="<?=$row['username'];?>"><?=$row['username'];?></option>
+								<?php } while ($row= mysqli_fetch_assoc($query));?>
+							</select>
+							</div>
+					  </div>
+                      <div class="form-group">
+					  <?php
+						include('koneksi.php');
+						$query2 = mysqli_query($con, "SELECT * FROM login WHERE jabatan='Supervisor'") or die(mysqli_connect_error());
+						$row2 = mysqli_fetch_assoc($query2);
+					  ?>
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Nama Supervisor
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							<select class="form-control" name="supervisor" id="supervisor">
+								<option value="" disabled selected>-</option>
+								<?php do { ?>
+								<option value="<?=$row2['username'];?>"><?=$row2['username'];?></option>
+								<?php } while ($row2= mysqli_fetch_assoc($query2));?>
 							</select>
 							</div>
 					  </div>

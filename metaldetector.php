@@ -3,7 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Data Berat Timbangan </title>
+<title> Data Pengaturan Suhu </title>
 <?php
 include('koneksi.php');
 ?>
@@ -52,7 +52,7 @@ include('side1.html');?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="berattimbangan_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>
+                    <li><a href="pengaturansuhu_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>
                   </ul>
                 </li>
 				
@@ -65,7 +65,7 @@ include('side1.html');?>
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data Berat Timbangan</h3>
+                <h3>Data Produk</h3>
               </div>
             </div>
 
@@ -81,8 +81,12 @@ include('side1.html');?>
                                 <th><div align="center">No</div></th>
                                 <th><div align="center">Nama Produk</div></th>
                                 <th><div align="center">No. batch</div></th>
-								<th><div align="center">Tanggal</div></th>
                                 <th><div align="center">Shift</div></th>
+                                <th><div align="center">Ukuran</div></th>
+                                <th><div align="center">Zona 1</div></th>
+                                <th><div align="center">Zona 2</div></th>
+                                <th><div align="center">Zona 3</div></th>
+                                <th><div align="center">Zona 4</div></th>
                                 <th><div align="center">Action</div></th>
                                 <th></th>
                             </tr>
@@ -90,7 +94,7 @@ include('side1.html');?>
                         <tbody>
 						<?php
 						include("koneksi.php");
-						$query = mysqli_query($con, "SELECT DISTINCT nama_produk,id_produk,tanggal_berat_timbangan,shift FROM berat_timbangan ORDER by id") or die(mysqli_connect_error());
+						$query = mysqli_query($con, "SELECT * FROM pengaturan_suhu") or die(mysqli_connect_error());
 						$row = mysqli_fetch_assoc($query);
 						$x = mysqli_num_rows($query);
 						$count = 1;
@@ -100,12 +104,16 @@ include('side1.html');?>
 								<td><div align="center"><?php echo $count; ?></div></td>
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
-								<td><div align="center"><?php echo $row['tanggal_berat_timbangan']; ?></div></td>
 								<td><div align="center"><?php echo $row['shift']; ?></div></td>
+								<td><div align="center"><?php echo $row['ukuran']; ?></div></td>
+								<td><div align="center"><?php echo $row['zona_1']; ?></div></td>
+								<td><div align="center"><?php echo $row['zona_2']; ?></div></td>
+								<td><div align="center"><?php echo $row['zona_3']; ?></div></td>
+								<td><div align="center"><?php echo $row['zona_4']; ?></div></td>
 								<td><div align="center">
-								<a href="berattimbangan_view.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
-								<a href="berattimbangan_edit.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
-								<a href="berattimbangan_delete.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
+								<a href="produk_view.php?id=<?=$row['id']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
+								<a href="produk_edit.php?id=<?=$row['id']?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
+								<a href="produk_delete.php?id=<?=$row['id']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
 								</div></td>
 							</tr>
 						<?php 
