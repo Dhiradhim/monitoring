@@ -39,7 +39,7 @@ include('top.html');
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="pengaturansuhu_save.php" method="post">
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="metaldetector_save.php" method="post">
                       <div class="form-group">
 					  <?php
 						include('koneksi.php');
@@ -106,6 +106,22 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Tanggal
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							  <input type="date" name="tanggal_metal_detector" required="required" class="form-control col-md-7 col-xs-12">
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Jam
+							</label>
+							<div class="col-md-1 col-sm-3 col-xs-4">
+							  <input type="time" name="jam_metal_detector" required="required" class="form-control col-md-7 col-xs-12">
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Awal
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
@@ -157,7 +173,7 @@ include('top.html');
 							Nama Formen
 							</label>
 							<div class="col-md-2 col-sm-3 col-xs-4">
-							<select class="form-control" name="formen" id="formen">
+							<select class="form-control" name="nama_formen" id="nama_formen">
 								<option value="" disabled selected>-</option>
 								<?php do { ?>
 								<option value="<?=$row['username'];?>"><?=$row['username'];?></option>
@@ -175,7 +191,7 @@ include('top.html');
 							Nama Supervisor
 							</label>
 							<div class="col-md-2 col-sm-3 col-xs-4">
-							<select class="form-control" name="supervisor" id="supervisor">
+							<select class="form-control" name="nama_supervisor" id="nama_supervisor">
 								<option value="" disabled selected>-</option>
 								<?php do { ?>
 								<option value="<?=$row2['username'];?>"><?=$row2['username'];?></option>
@@ -183,6 +199,12 @@ include('top.html');
 							</select>
 							</div>
 					  </div>
+					  <?php
+					  $nik=$_SESSION['nik'];
+					  $query1 = mysqli_query($con, "SELECT username FROM login WHERE nik='$nik'") or die(mysqli_connect_error());
+					  $row1 = mysqli_fetch_assoc($query1);
+					  ?>
+					  <input type="hidden" id="nama_operator" name="nama_operator" value="<?=$row1['username'];?>">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-danger" type="button" onclick="window.history.back()">Cancel</button>
