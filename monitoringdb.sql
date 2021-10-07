@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2021 at 06:19 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Generation Time: Oct 07, 2021 at 09:35 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,13 +54,23 @@ INSERT INTO `batch` (`id`, `nama_produk`, `no_batch`) VALUES
 --
 
 CREATE TABLE `berat_timbangan` (
-  `id_berat_timbangan` varchar(50) NOT NULL,
+  `id` int(20) NOT NULL,
+  `nama_produk` varchar(50) NOT NULL,
   `id_produk` int(20) NOT NULL,
   `shift` int(1) NOT NULL,
   `jam_timbangan` time NOT NULL DEFAULT current_timestamp(),
   `berat` varchar(20) NOT NULL,
   `tanggal_berat_timbangan` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `berat_timbangan`
+--
+
+INSERT INTO `berat_timbangan` (`id`, `nama_produk`, `id_produk`, `shift`, `jam_timbangan`, `berat`, `tanggal_berat_timbangan`) VALUES
+(1, 'a', 1, 1, '09:00:00', '12', '2021-10-07'),
+(2, 'a', 2, 2, '10:00:00', '13', '2021-10-07'),
+(3, 'a', 1, 1, '10:30:00', '121', '2021-10-07');
 
 -- --------------------------------------------------------
 
@@ -114,15 +124,16 @@ INSERT INTO `login` (`username`, `nik`, `jabatan`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `metal_detektor`
+-- Table structure for table `metal_detector`
 --
 
-CREATE TABLE `metal_detektor` (
-  `id_metal_detektor` varchar(50) NOT NULL,
+CREATE TABLE `metal_detector` (
+  `id` int(11) NOT NULL,
+  `nama_produk` varchar(50) NOT NULL,
   `id_produk` int(20) NOT NULL,
   `shift` int(1) NOT NULL,
-  `tanggal_metal_detektor` date NOT NULL,
-  `jam_metal_detektor` time NOT NULL,
+  `tanggal_metal_detector` date NOT NULL,
+  `jam_metal_detector` time NOT NULL,
   `test_pieces` varchar(20) NOT NULL,
   `awal` varchar(1) NOT NULL,
   `tengah` varchar(1) NOT NULL,
@@ -141,7 +152,8 @@ CREATE TABLE `metal_detektor` (
 --
 
 CREATE TABLE `pengaturan_suhu` (
-  `id_pengaturan_suhu` varchar(50) NOT NULL,
+  `id` int(20) NOT NULL,
+  `nama_produk` varchar(50) NOT NULL,
   `id_produk` int(20) NOT NULL,
   `shift` int(1) NOT NULL,
   `ukuran` varchar(20) NOT NULL,
@@ -152,6 +164,15 @@ CREATE TABLE `pengaturan_suhu` (
   `tanggal_pengaturan_suhu` date NOT NULL DEFAULT current_timestamp(),
   `jam_pengaturan_suhu` time NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengaturan_suhu`
+--
+
+INSERT INTO `pengaturan_suhu` (`id`, `nama_produk`, `id_produk`, `shift`, `ukuran`, `zona_1`, `zona_2`, `zona_3`, `zona_4`, `tanggal_pengaturan_suhu`, `jam_pengaturan_suhu`) VALUES
+(1, 'b', 11, 1, '4 x 1 Kg', 4, 31, 31, 31, '2021-10-07', '09:11:39'),
+(2, 'b', 11, 2, '4 x 1 Kg', 2, 31, 31, 31, '2021-10-07', '09:11:53'),
+(3, 'd', 2222, 3, '3 x 1 Kg', 2, 31, 31, 31, '2021-10-07', '09:12:05');
 
 -- --------------------------------------------------------
 
@@ -185,6 +206,24 @@ ALTER TABLE `batch`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `berat_timbangan`
+--
+ALTER TABLE `berat_timbangan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `metal_detector`
+--
+ALTER TABLE `metal_detector`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengaturan_suhu`
+--
+ALTER TABLE `pengaturan_suhu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `produk`
 --
 ALTER TABLE `produk`
@@ -199,6 +238,24 @@ ALTER TABLE `produk`
 --
 ALTER TABLE `batch`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `berat_timbangan`
+--
+ALTER TABLE `berat_timbangan`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `metal_detector`
+--
+ALTER TABLE `metal_detector`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pengaturan_suhu`
+--
+ALTER TABLE `pengaturan_suhu`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `produk`
