@@ -96,7 +96,6 @@ include('side1.html');?>
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
 								<td>
 								<div align="center">
-								<a href="produk_view.php?id=<?=$row['id']?>" title="View"><img src="images/application.png" width="16" height="16" /></a>  
 								<a href="produk_edit.php?id=<?=$row['id']?>" title="Edit"><img src="images/application_form_edit.png" width="16" height="16" /></a>  
 								<a href="produk_delete.php?id=<?=$row['id']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
 								</div></td>

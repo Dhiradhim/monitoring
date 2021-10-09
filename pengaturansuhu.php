@@ -127,7 +127,6 @@ include('side1.html');?>
 								<td><div align="center"><?php echo $row['zona_3']; ?></div></td>
 								<td><div align="center"><?php echo $row['zona_4']; ?></div></td>
 								<td><div align="center">
-								<a href="produk_view.php?id=<?=$row['id']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
 								<?php
 								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
 								echo '<a href="pengaturansuhu_edit.php?id='.$row['id'].'" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  ';

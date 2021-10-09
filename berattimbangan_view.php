@@ -3,7 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Input Berat Timbangan </title>
+<title> Data Berat Timbangan </title>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function(){
@@ -29,7 +29,7 @@ include('top.html');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Berat Timbangan</h3>
+                <h3>Data Berat Timbangan</h3>
               </div>
             </div>
 
@@ -89,7 +89,15 @@ include('top.html');
                                 <th><div align="center">No</div></th>
                                 <th><div align="center">Jam</div></th>
                                 <th><div align="center">Berat</div></th>
-                                <th><div align="center">Action</div></th>
+								<?php
+								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
+								echo '<th><div align="center">Action</div></th>';
+								}
+								else
+								{
+									
+								}
+								?>
                                 <th></th>
                             </tr>
                         </thead>
@@ -103,9 +111,17 @@ include('top.html');
 								<td><div align="center"><?php echo $count; ?></div></td>
 								<td><div align="center"><?php echo $row['jam_timbangan']; ?></div></td>
 								<td><div align="center"><?php echo $row['berat']; ?></div></td>
-								<td><div align="center">
-								<a href="berattimbangan_edit.php?id=<?=$row['id'];?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
-								<a href="berattimbangan_delete.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
+								<?php
+								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
+								echo '<td><div align="center">';
+								echo '<a href="berattimbangan_edit.php?id='.$row['id'].'" title="Edit"><img src="images/application_form_edit.png" width="16" height="16" /></a>  ';
+								echo '<a href="berattimbangan_delete.php?id='.$row['id'].'" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>';
+								}
+								else
+								{
+									
+								}
+								?>
 								</div></td>
 							</tr>
 						<?php 

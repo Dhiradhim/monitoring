@@ -3,7 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Input Berat Timbangan </title>
+<title> Edit Berat Timbangan </title>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function(){
@@ -29,7 +29,7 @@ include('top.html');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Berat Timbangan</h3>
+                <h3>Edit Berat Timbangan</h3>
               </div>
             </div>
 
