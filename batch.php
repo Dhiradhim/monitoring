@@ -3,7 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Data Produk </title>
+<title> Data No. Batch </title>
 <?php
 include('koneksi.php');
 ?>
@@ -51,7 +51,7 @@ include('side1.html');?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="produk_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input Nama Produk</a></li>
+                    <li><a href="batch_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input No. Batch</a></li>
                   </ul>
                 </li>
 				
@@ -64,7 +64,7 @@ include('side1.html');?>
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data Produk</h3>
+                <h3>Data No. Batch</h3>
               </div>
             </div>
 
@@ -79,6 +79,7 @@ include('side1.html');?>
                             <tr>
                                 <th><div align="center">No</div></th>
                                 <th><div align="center">Nama Produk</div></th>
+                                <th><div align="center">No. batch</div></th>
                                 <th><div align="center">Action</div></th>
                                 <th></th>
                             </tr>
@@ -86,7 +87,7 @@ include('side1.html');?>
                         <tbody>
 						<?php
 						include("koneksi.php");
-						$query = mysqli_query($con, "SELECT * FROM produk ORDER BY id") or die(mysqli_connect_error());
+						$query = mysqli_query($con, "SELECT * FROM batch ORDER BY id") or die(mysqli_connect_error());
 						$row = mysqli_fetch_assoc($query);
 						$count = 1;
 						
@@ -94,11 +95,12 @@ include('side1.html');?>
 							<tr>
 								<td><div align="center"><?php echo $count; ?></div></td>
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
+								<td><div align="center"><?php echo $row['no_batch']; ?></div></td>
 								<td>
 								<div align="center">
-								<a href="produk_view.php?id=<?=$row['id']?>" title="View"><img src="images/application.png" width="16" height="16" /></a>  
-								<a href="produk_edit.php?id=<?=$row['id']?>" title="Edit"><img src="images/application_form_edit.png" width="16" height="16" /></a>  
-								<a href="produk_delete.php?id=<?=$row['id']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
+								<a href="batch_view.php?id=<?=$row['id']?>" title="View"><img src="images/application.png" width="16" height="16" /></a>  
+								<a href="batch_edit.php?id=<?=$row['id']?>" title="Edit"><img src="images/application_form_edit.png" width="16" height="16" /></a>  
+								<a href="batch_delete.php?id=<?=$row['id']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
 								</div></td>
 								<td></td>
 							</tr>

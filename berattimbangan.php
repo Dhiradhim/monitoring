@@ -40,7 +40,6 @@ include('side1.html');?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-					<li><a href="profile.php"><i class="fa fa-user pull-right"></i>Profile</a></li>
                     <li><a href="changepw.php"><i class="fa fa-gear pull-right"></i>Change Password</a></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
                   </ul>
@@ -81,11 +80,11 @@ include('side1.html');?>
                   <div class="x_content">
 					<table class="table" 					
 					<?php
-					if ($row_user['jabatan']=='administrator') {	
-						echo 'id="datatable-buttons">';
+					if ($row_user['jabatan']=='operator') {	
+						echo 'id="datatable">';
 					}
 					else {
-						echo 'id="datatable">';
+						echo 'id="datatable-buttons">';
 					}
 					?>
 						<thead>
