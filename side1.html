@@ -30,11 +30,11 @@
                   <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
 				  <?php 
 				  if ($row['jabatan']=='administrator'){
-				  echo '<li><a><i class="fa fa-folder-o"></i>Produk<span class="fa fa-chevron-down"></span></a>';
-				  echo '<ul class="nav child_menu">';
-                  echo '<li><a href="produk.php">Nama Produk</a></li>';
-                  echo '<li><a href="batch.php">No. Batch</a></li>';
-				  echo '</ul></li>';
+				  echo '<li><a href="produk.php"><i class="fa fa-edit"></i> Produk </a></li>';
+				  echo '<li><a href="batch.php"><i class="fa fa-edit"></i> No. Batch </a></li>';
+				  }
+				  else if ($row['jabatan']=='operator'){
+				  echo '<li><a href="batch.php"><i class="fa fa-edit"></i> No. Batch </a></li>';
 				  }
 				  ?>
 				  <li><a href="pengaturansuhu.php"><i class="fa fa-edit"></i> Pengaturan Suhu </a></li>

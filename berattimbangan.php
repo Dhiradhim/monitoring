@@ -122,7 +122,6 @@ include('side1.html');?>
 								<a href="berattimbangan_view.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
 								<?php
 								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
-								echo '<a href="berattimbangan_edit.php?nama_produk='.$row['nama_produk'].'&id_produk='.$row['id_produk'].'&tanggal_berat_timbangan='.$row['tanggal_berat_timbangan'].'&shift='.$row['shift'].'" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  ';
 								echo '<a href="berattimbangan_delete.php?nama_produk='.$row['nama_produk'].'&id_produk='.$row['id_produk'].'&tanggal_berat_timbangan='.$row['tanggal_berat_timbangan'].'&shift='.$row['shift'].'" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>';
 								}
 								else

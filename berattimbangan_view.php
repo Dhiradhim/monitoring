@@ -104,8 +104,7 @@ include('top.html');
 								<td><div align="center"><?php echo $row['jam_timbangan']; ?></div></td>
 								<td><div align="center"><?php echo $row['berat']; ?></div></td>
 								<td><div align="center">
-								<a href="berattimbangan_view.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
-								<a href="berattimbangan_edit.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
+								<a href="berattimbangan_edit.php?id=<?=$row['id'];?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
 								<a href="berattimbangan_delete.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
 								</div></td>
 							</tr>

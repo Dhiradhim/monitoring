@@ -140,8 +140,8 @@ include('side1.html');?>
 								<a href="produk_view.php?id=<?=$row['id']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
 								<?php
 								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
-								echo '<a href="produk_edit.php?id='.$row['id'].'" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  ';
-								echo '<a href="produk_delete.php?id='.$row['id'].'" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>';
+								echo '<a href="metaldetector_edit.php?id='.$row['id'].'" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  ';
+								echo '<a href="metaldetector_delete.php?id='.$row['id'].'" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>';
 								}
 								else
 								{
