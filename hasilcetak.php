@@ -3,7 +3,7 @@
 <head>
 <?php
 include('header.html');?>
-<title> Data Metal Detector </title>
+<title> Data Hasil Cetak </title>
 <?php
 include('koneksi.php');
 ?>
@@ -45,17 +45,19 @@ include('side1.html');?>
                     <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
                   </ul>
                 </li>
-				
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Menu
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="metaldetector_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>
-                  </ul>
-                </li>
-				
+				<?php 
+				if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
+					echo '<li class="">';
+					echo '  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+					echo '    Menu';
+					echo '    <span class=" fa fa-angle-down"></span>';
+					echo '  </a> ';
+					echo '  <ul class="dropdown-menu dropdown-usermenu pull-right">';
+					echo '   <li><a href="hasilcetak_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>';
+					echo '  </ul>';
+					echo '</li>';
+				}
+				?>
               </ul>
             </nav>
           </div>
@@ -65,7 +67,7 @@ include('side1.html');?>
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data Metal Detector</h3>
+                <h3>Data Hasil Cetak</h3>
               </div>
             </div>
 
@@ -75,7 +77,15 @@ include('side1.html');?>
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<table class="table" id="datatable-buttons">
+					<table class="table"
+					<?php
+					if ($row_user['jabatan']=='administrator') {	
+						echo 'id="datatable-buttons">';
+					}
+					else {
+						echo 'id="datatable">';
+					}
+					?>
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>
@@ -84,47 +94,66 @@ include('side1.html');?>
                                 <th><div align="center">Shift</div></th>
                                 <th><div align="center">Tanggal</div></th>
                                 <th><div align="center">Jam</div></th>
-                                <th><div align="center">Awal</div></th>
-                                <th><div align="center">Tengah</div></th>
-                                <th><div align="center">Akhir</div></th>
-                                <th><div align="center">Jumlah Oke</div></th>
-                                <th><div align="center">Jumlah Not Oke</div></th>
+                                <th><div align="center">Standar</div></th>
+                                <th><div align="center">Actual</div></th>
+                                <th><div align="center">Varian</div></th>
+                                <th><div align="center">Persentase</div></th>
+                                <th><div align="center">Start Downtime</div></th>
+                                <th><div align="center">Stop Downtime</div></th>
+                                <th><div align="center">Total Downtime</div></th>
+                                <th><div align="center">Deskripsi Downtime</div></th>
+                                <th><div align="center">Tindakan Dilakukan</div></th>
+                                <th><div align="center">Tindakan Pencegahan</div></th>
                                 <th><div align="center">Nama Operator</div></th>
-                                <th><div align="center">Nama Formen</div></th>
-                                <th><div align="center">Nama SPV</div></th>
                                 <th><div align="center">Action</div></th>
-                                <th></th>
+                                <th><div align="center"> </div></th>
                             </tr>
                         </thead>
                         <tbody>
 						<?php
-						include("koneksi.php");
-						$query = mysqli_query($con, "SELECT * FROM metal_detector") or die(mysqli_connect_error());
-						$row = mysqli_fetch_assoc($query);
-						$x = mysqli_num_rows($query);
-						$count = 1;
-						
+						$date=date("Y-m-d");
+						if ($row_user['jabatan']=='operator') {
+							$query = mysqli_query($con, "SELECT * FROM hasil_cetak WHERE tanggal_hasil_cetak=$date") or die(mysqli_connect_error());
+							$row = mysqli_fetch_assoc($query);
+							$count = 1;
+							}
+						else {
+							$query = mysqli_query($con, "SELECT * FROM hasil_cetak") or die(mysqli_connect_error());
+							$row = mysqli_fetch_assoc($query);
+							$count = 1;
+						}
 						do { ?>
 							<tr>
 								<td><div align="center"><?php echo $count; ?></div></td>
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['shift']; ?></div></td>
-								<td><div align="center"><?php echo $row['tanggal_metal_detector']; ?></div></td>
-								<td><div align="center"><?php echo $row['jam_metal_detector']; ?></div></td>
-								<td><div align="center"><?php if ($row['awal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['tengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['akhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php echo $row['jumlah_oke']; ?></div></td>
-								<td><div align="center"><?php echo $row['jumlah_not_oke']; ?></div></td>
+								<td><div align="center"><?php echo $row['tanggal_hasil_cetak']; ?></div></td>
+								<td><div align="center"><?php echo $row['jam_hasil_cetak']; ?></div></td>
+								<td><div align="center"><?php echo $row['standar']; ?></div></td>
+								<td><div align="center"><?php echo $row['actual']; ?></div></td>
+								<td><div align="center"><?php echo $row['varian']; ?></div></td>
+								<td><div align="center"><?php echo $row['persentase']; ?> %</div></td>
+								<td><div align="center"><?php echo $row['start_downtime']; ?></div></td>
+								<td><div align="center"><?php echo $row['stop_downtime']; ?></div></td>
+								<td><div align="center"><?php echo $row['total_downtime'];?> menit</div></td>
+								<td><div align="center"><?php echo $row['deskripsi_downtime']; ?></div></td>
+								<td><div align="center"><?php echo $row['tindakan_dilakukan']; ?></div></td>
+								<td><div align="center"><?php echo $row['tindakan_pencegahan']; ?></div></td>
 								<td><div align="center"><?php echo $row['nama_operator']; ?></div></td>
-								<td><div align="center"><?php echo $row['nama_formen']; ?></div></td>
-								<td><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
 								<td><div align="center">
-								<a href="produk_view.php?id=<?=$row['id']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
-								<a href="produk_edit.php?id=<?=$row['id']?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
-								<a href="produk_delete.php?id=<?=$row['id']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
-								</div></td>
+								<a href="hasilcetak_view.php?id=<?=$row['id']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
+								<?php
+								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
+								echo '<a href="hasilcetak_edit.php?id='.$row['id'].'" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  ';
+								echo '<a href="hasilcetak_delete.php?id='.$row['id'].'" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>';
+								}
+								else
+								{
+									
+								}
+								?>
+								<td><div align="center"> </div></td>
 							</tr>
 						<?php 
 						$count++;

@@ -11,8 +11,8 @@
               <div class="profile_info">
 			  <?php
 			  include('koneksi.php');
-			  $kd= $_SESSION['nik'];
-			  $us = mysqli_query($con, "SELECT username FROM login WHERE nik='$kd'") or die(mysqli_connect_error());
+			  $nik= $_SESSION['nik'];
+			  $us = mysqli_query($con, "SELECT username,jabatan FROM login WHERE nik='$nik'") or die(mysqli_connect_error());
 			  $row = mysqli_fetch_assoc($us);
 			  ?>
                 <span>Welcome,</span>
@@ -28,12 +28,20 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
-				  <li><a href="produk.php"><i class="fa fa-edit"></i> Produk </a></li>
+				  <?php 
+				  if ($row['jabatan']=='administrator'){
+				  echo '<li><a href="produk.php"><i class="fa fa-edit"></i> Produk </a></li>';
+				  }
+				  ?>
 				  <li><a href="pengaturansuhu.php"><i class="fa fa-edit"></i> Pengaturan Suhu </a></li>
 				  <li><a href="berattimbangan.php"><i class="fa fa-edit"></i> Berat Timbangan </a></li>
 				  <li><a href="metaldetector.php"><i class="fa fa-edit"></i> Metal Detector </a></li>
 				  <li><a href="hasilcetak.php"><i class="fa fa-edit"></i> Hasil Cetak </a></li>
-				  <li><a href="hasilmonitoring.php"><i class="fa fa-edit"></i> Hasil Monitoring </a></li>
+				  <?php 
+				  if ($row['jabatan']!='operator'){
+				  echo '<li><a href="hasilmonitoring.php"><i class="fa fa-edit"></i> Hasil Monitoring </a></li>';
+				  }
+				  ?>
                 </ul>
               </div>
 

@@ -39,7 +39,7 @@ include('top.html');
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="metaldetector_save.php" method="post">
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="hasilcetak_save.php" method="post">
                       <div class="form-group">
 					  <?php
 						include('koneksi.php');

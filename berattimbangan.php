@@ -46,15 +46,19 @@ include('side1.html');?>
                   </ul>
                 </li>
 				
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Menu
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="berattimbangan_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>
-                  </ul>
-                </li>
+				<?php 
+				if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
+					echo '<li class="">';
+					echo '  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+					echo '    Menu';
+					echo '    <span class=" fa fa-angle-down"></span>';
+					echo '  </a> ';
+					echo '  <ul class="dropdown-menu dropdown-usermenu pull-right">';
+					echo '   <li><a href="berattimbangan_input.php"><i class="fa fa-pencil-square-o pull-right"></i>Input New Data</a></li>';
+					echo '  </ul>';
+					echo '</li>';
+				}
+				?>
 				
               </ul>
             </nav>
@@ -75,7 +79,15 @@ include('side1.html');?>
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<table class="table" id="datatable-buttons">
+					<table class="table" 					
+					<?php
+					if ($row_user['jabatan']=='administrator') {	
+						echo 'id="datatable-buttons">';
+					}
+					else {
+						echo 'id="datatable">';
+					}
+					?>
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>
@@ -84,17 +96,22 @@ include('side1.html');?>
 								<th><div align="center">Tanggal</div></th>
                                 <th><div align="center">Shift</div></th>
                                 <th><div align="center">Action</div></th>
-                                <th></th>
+                                <th><div align="center"> </div></th>
                             </tr>
                         </thead>
                         <tbody>
 						<?php
-						include("koneksi.php");
-						$query = mysqli_query($con, "SELECT DISTINCT nama_produk,id_produk,tanggal_berat_timbangan,shift FROM berat_timbangan ORDER by id") or die(mysqli_connect_error());
-						$row = mysqli_fetch_assoc($query);
-						$x = mysqli_num_rows($query);
-						$count = 1;
-						
+						$date=date("Y-m-d");
+						if ($row_user['jabatan']=='operator') {
+							$query = mysqli_query($con, "SELECT DISTINCT nama_produk,id_produk,tanggal_berat_timbangan,shift FROM berat_timbangan ORDER by id WHERE tanggal_berat_timbangan=$date") or die(mysqli_connect_error());
+							$row = mysqli_fetch_assoc($query);
+							$count = 1;
+							}
+						else {
+							$query = mysqli_query($con, "SELECT DISTINCT nama_produk,id_produk,tanggal_berat_timbangan,shift FROM berat_timbangan ORDER by id") or die(mysqli_connect_error());
+							$row = mysqli_fetch_assoc($query);
+							$count = 1;
+						}
 						do { ?>
 							<tr>
 								<td><div align="center"><?php echo $count; ?></div></td>
@@ -104,9 +121,18 @@ include('side1.html');?>
 								<td><div align="center"><?php echo $row['shift']; ?></div></td>
 								<td><div align="center">
 								<a href="berattimbangan_view.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
-								<a href="berattimbangan_edit.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  
-								<a href="berattimbangan_delete.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
+								<?php
+								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
+								echo '<a href="berattimbangan_edit.php?nama_produk='.$row['nama_produk'].'&id_produk='.$row['id_produk'].'&tanggal_berat_timbangan='.$row['tanggal_berat_timbangan'].'&shift='.$row['shift'].'" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  ';
+								echo '<a href="berattimbangan_delete.php?nama_produk='.$row['nama_produk'].'&id_produk='.$row['id_produk'].'&tanggal_berat_timbangan='.$row['tanggal_berat_timbangan'].'&shift='.$row['shift'].'" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>';
+								}
+								else
+								{
+									  
+								}
+								?>
 								</div></td>
+								<td><div align="center"> </div></td>
 							</tr>
 						<?php 
 						$count++;

@@ -1,7 +1,11 @@
 <?php  
 session_start();  
-  
-if(!$_SESSION['nik'])  
+include('koneksi.php');
+$nik=$_SESSION['nik'];
+$query_user = mysqli_query($con, "SELECT * FROM login WHERE nik='$nik'") or die(mysqli_connect_error());
+$row_user = mysqli_fetch_assoc($query_user);
+
+if(!$_SESSION['nik'])
 {  
   
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
