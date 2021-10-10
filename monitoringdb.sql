@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2021 at 09:35 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Oct 10, 2021 at 04:18 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,9 +43,7 @@ INSERT INTO `batch` (`id`, `nama_produk`, `no_batch`) VALUES
 (3, 'b', 11),
 (4, 'c', 111),
 (5, 'c', 222),
-(6, 'c', 333),
-(7, 'd', 1111),
-(8, 'd', 2222);
+(6, 'c', 333);
 
 -- --------------------------------------------------------
 
@@ -68,9 +66,9 @@ CREATE TABLE `berat_timbangan` (
 --
 
 INSERT INTO `berat_timbangan` (`id`, `nama_produk`, `id_produk`, `shift`, `jam_timbangan`, `berat`, `tanggal_berat_timbangan`) VALUES
-(1, 'a', 1, 1, '09:00:00', '12', '2021-10-07'),
-(2, 'a', 2, 2, '10:00:00', '13', '2021-10-07'),
-(3, 'a', 1, 1, '10:30:00', '121', '2021-10-07');
+(1, 'a', 1, 1, '09:01:00', '122', '2021-10-07'),
+(3, 'a', 1, 1, '10:30:00', '121', '2021-10-07'),
+(4, 'b', 11, 2, '10:15:00', '11', '2021-10-07');
 
 -- --------------------------------------------------------
 
@@ -79,7 +77,8 @@ INSERT INTO `berat_timbangan` (`id`, `nama_produk`, `id_produk`, `shift`, `jam_t
 --
 
 CREATE TABLE `hasil_cetak` (
-  `id_hasil_cetak` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL,
+  `nama_produk` varchar(50) NOT NULL,
   `id_produk` int(20) NOT NULL,
   `shift` int(1) NOT NULL,
   `jam_hasil_cetak` time NOT NULL,
@@ -90,12 +89,19 @@ CREATE TABLE `hasil_cetak` (
   `persentase` varchar(4) NOT NULL,
   `start_downtime` time NOT NULL,
   `stop_downtime` time NOT NULL,
-  `total_downtime` time NOT NULL,
+  `total_downtime` varchar(10) NOT NULL,
   `deskripsi_downtime` varchar(50) NOT NULL,
   `tindakan_dilakukan` varchar(50) NOT NULL,
   `tindakan_pencegahan` varchar(50) NOT NULL,
   `nama_operator` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hasil_cetak`
+--
+
+INSERT INTO `hasil_cetak` (`id`, `nama_produk`, `id_produk`, `shift`, `jam_hasil_cetak`, `tanggal_hasil_cetak`, `standar`, `actual`, `varian`, `persentase`, `start_downtime`, `stop_downtime`, `total_downtime`, `deskripsi_downtime`, `tindakan_dilakukan`, `tindakan_pencegahan`, `nama_operator`) VALUES
+(1, 'b', 11, 1, '01:01:00', '2021-10-01', '100', '5', '95', '95', '01:00:00', '01:30:00', '30', 'aaaa', 'aaaa', 'aaaa', 'admin');
 
 -- --------------------------------------------------------
 
@@ -104,6 +110,7 @@ CREATE TABLE `hasil_cetak` (
 --
 
 CREATE TABLE `login` (
+  `id` int(2) NOT NULL,
   `username` varchar(50) NOT NULL,
   `nik` varchar(20) NOT NULL,
   `jabatan` varchar(20) NOT NULL,
@@ -114,12 +121,14 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `nik`, `jabatan`, `password`) VALUES
-('admin', '123456789', 'administrator', 'e10adc3949ba59abbe56e057f20f883e'),
-('op1', '111111111111', 'operator1', 'e10adc3949ba59abbe56e057f20f883e'),
-('op2', '2222222222', 'operator2', 'e10adc3949ba59abbe56e057f20f883e'),
-('formen', '3333333333', 'Formen', 'e10adc3949ba59abbe56e057f20f883e'),
-('supervisor', '4444444444', 'Supervisor', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `login` (`id`, `username`, `nik`, `jabatan`, `password`) VALUES
+(1, 'admin', '123456789', 'administrator', 'e10adc3949ba59abbe56e057f20f883e'),
+(2, 'op1', '111111111111', 'operator', 'e10adc3949ba59abbe56e057f20f883e'),
+(3, 'op2', '2222222222', 'operator', 'e10adc3949ba59abbe56e057f20f883e'),
+(4, 'formen', '3333333333', 'formen', 'e10adc3949ba59abbe56e057f20f883e'),
+(5, 'supervisor', '4444444444', 'supervisor', 'e10adc3949ba59abbe56e057f20f883e'),
+(6, 'formen2', '555555555', 'formen', 'e10adc3949ba59abbe56e057f20f883e'),
+(7, 'supervisor2', '666666666666', 'supervisor', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
@@ -135,15 +144,23 @@ CREATE TABLE `metal_detector` (
   `tanggal_metal_detector` date NOT NULL,
   `jam_metal_detector` time NOT NULL,
   `test_pieces` varchar(20) NOT NULL,
-  `awal` varchar(1) NOT NULL,
-  `tengah` varchar(1) NOT NULL,
-  `akhir` varchar(1) NOT NULL,
+  `awal` varchar(1) NOT NULL DEFAULT 'n',
+  `tengah` varchar(1) NOT NULL DEFAULT 'n',
+  `akhir` varchar(1) NOT NULL DEFAULT 'n',
   `jumlah_oke` varchar(10) NOT NULL,
   `jumlah_not_oke` varchar(10) NOT NULL,
   `nama_operator` varchar(50) NOT NULL,
   `nama_formen` varchar(50) NOT NULL,
   `nama_supervisor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `metal_detector`
+--
+
+INSERT INTO `metal_detector` (`id`, `nama_produk`, `id_produk`, `shift`, `tanggal_metal_detector`, `jam_metal_detector`, `test_pieces`, `awal`, `tengah`, `akhir`, `jumlah_oke`, `jumlah_not_oke`, `nama_operator`, `nama_formen`, `nama_supervisor`) VALUES
+(1, 'a', 1, 1, '2021-10-09', '23:00:00', '', 'y', '', 'y', '11', '12', 'admin', 'formen2', 'supervisor2'),
+(4, 'b', 11, 2, '2021-10-10', '10:15:00', '', '', 'y', 'y', '12', '13', 'admin', 'formen', 'supervisor2');
 
 -- --------------------------------------------------------
 
@@ -170,9 +187,7 @@ CREATE TABLE `pengaturan_suhu` (
 --
 
 INSERT INTO `pengaturan_suhu` (`id`, `nama_produk`, `id_produk`, `shift`, `ukuran`, `zona_1`, `zona_2`, `zona_3`, `zona_4`, `tanggal_pengaturan_suhu`, `jam_pengaturan_suhu`) VALUES
-(1, 'b', 11, 1, '4 x 1 Kg', 4, 31, 31, 31, '2021-10-07', '09:11:39'),
-(2, 'b', 11, 2, '4 x 1 Kg', 2, 31, 31, 31, '2021-10-07', '09:11:53'),
-(3, 'd', 2222, 3, '3 x 1 Kg', 2, 31, 31, 31, '2021-10-07', '09:12:05');
+(1, 'b', 11, 1, '12 x 250 gr', 1, 1, 1, 1, '2021-10-07', '09:11:39');
 
 -- --------------------------------------------------------
 
@@ -192,8 +207,7 @@ CREATE TABLE `produk` (
 INSERT INTO `produk` (`id`, `nama_produk`) VALUES
 (1, 'a'),
 (2, 'b'),
-(3, 'c'),
-(4, 'd');
+(3, 'c');
 
 --
 -- Indexes for dumped tables
@@ -209,6 +223,18 @@ ALTER TABLE `batch`
 -- Indexes for table `berat_timbangan`
 --
 ALTER TABLE `berat_timbangan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hasil_cetak`
+--
+ALTER TABLE `hasil_cetak`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -237,31 +263,43 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `batch`
 --
 ALTER TABLE `batch`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `berat_timbangan`
 --
 ALTER TABLE `berat_timbangan`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `hasil_cetak`
+--
+ALTER TABLE `hasil_cetak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `metal_detector`
 --
 ALTER TABLE `metal_detector`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pengaturan_suhu`
 --
 ALTER TABLE `pengaturan_suhu`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

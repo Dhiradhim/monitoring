@@ -13,7 +13,7 @@ session_start();//session starts here
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="favicon.ico" type="image/ico" />
 
-    <title>Garuda Mas Kencana</title>
+    <title>Gandum Mas Kencana</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@ session_start();//session starts here
       <div class="login_wrapper">
         <div class="animate form login_form">
 				  <div>
-                  <center><h1>Garuda Mas Kencana</h1></center>
+                  <center><h1>Gandum Mas Kencana</h1></center>
 			</div>
           <section class="login_content">			
             <form method="post" action="login.php">
@@ -59,7 +59,7 @@ session_start();//session starts here
                 <br />
 
                 <div>
-                  <p>&copy <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Garuda Mas Kencana.</p>
+                  <p>&copy <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Gandum Mas Kencana.</p>
                 </div>
               </div>
             </form>
