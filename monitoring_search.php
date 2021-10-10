@@ -229,6 +229,7 @@ $id_produk=$_POST['id_produk'];
 						?>
                          </tbody>
 					</table>
+					<button onclick="window.print()" class="btn btn-success">Print</button>
                   </div>
                 </div>
               </div>
