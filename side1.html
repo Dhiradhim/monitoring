@@ -1,7 +1,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"> <span>Inventory SCMedia</span></a>
+              <a href="index.php" class="site_title"> <span>Aplikasi Monitoring</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -15,7 +15,7 @@
 			  $us = mysqli_query($con, "SELECT username,jabatan FROM login WHERE nik='$nik'") or die(mysqli_connect_error());
 			  $row = mysqli_fetch_assoc($us);
 			  ?>
-                <span>Welcome,</span>
+                <span>Welcome</span>
                 <h2><?php echo $row['username'];?></h2>
               </div>
             </div>
