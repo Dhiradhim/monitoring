@@ -36,7 +36,9 @@ session_start();//session starts here
       <div class="login_wrapper">
         <div class="animate form login_form">
 				  <div>
-                  <center><h1>Gandum Mas Kencana</h1></center>
+                  <center>
+				  <img src="images/logo.webp" style="width:350px;height:120px;>
+				  </center>
 			</div>
           <section class="login_content">			
             <form method="post" action="login.php">
