@@ -3,7 +3,10 @@
 <head>
 <?php
 include('header.html');?>
-<title> Edit Berat Timbangan </title>
+<title> Tambah User </title>
+<?php
+include('koneksi.php');
+?>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function(){
@@ -29,7 +32,7 @@ include('top.html');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Edit Berat Timbangan</h3>
+                <h3>Tambah User</h3>
               </div>
             </div>
 
@@ -39,63 +42,51 @@ include('top.html');
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="berattimbangan_edit_save.php" method="post">
-					  <?php
-						include('koneksi.php');
-						$id=$_GET['id'];
-						$query = mysqli_query($con, "SELECT * FROM berat_timbangan WHERE id=$id") or die(mysqli_connect_error());
-						$row = mysqli_fetch_assoc($query);
-					  ?>
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="register_save.php" method="post">
                       <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Nama Produk
+							Username
 							</label>
 							<div class="col-md-3 col-sm-3 col-xs-4">
-							<input type="text" disabled name="nama_produk" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['nama_produk'];?>>
-							<input type="hidden" name="id" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['id'];?>>
+							<input type="text" name="username" required="required" class="form-control col-md-7 col-xs-12" autofocus>
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							No-Batch
+							NIK
 							</label>
 							<div class="col-md-3 col-sm-3 col-xs-4">
-							<input type="text" disabled name="dhift" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['id_produk'];?>>
+							<input type="text" name="nik" required="required" class="form-control col-md-7 col-xs-12" >
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Shift
+							Jabatan
 							</label>
-							<div class="col-md-3 col-sm-3 col-xs-4">
-							<input type="text" disabled name="dhift" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['shift'];?>>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+							  	<select class="form-control" name="jabatan">
+								<option value="" disabled selected>-</option>
+								<option value="administrator">Administrator</option>
+								<option value="operator">Operator</option>
+								<option value="formen">Formen</option>
+								<option value="supervisor">Supervisor</option>
+							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Tanggal
-							</label>
-							<div class="col-md-2 col-sm-3 col-xs-4">
-							  <input type="date" disabled value='<?=$row['tanggal_berat_timbangan']?>' name="tanggal_berat_timbangan" required="required" class="form-control col-md-7 col-xs-12">
-							</div>
-					  </div>
-					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Jam
-							</label>
-							<div class="col-md-1 col-sm-3 col-xs-4">
-							  <input type="time" value='<?=$row['jam_timbangan']?>' name="jam_timbangan" required="required" class="form-control col-md-7 col-xs-12">
-							</div>
-					  </div>
-					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Berat
-							</label>
-							<div class="col-md-1 col-sm-3 col-xs-4">
-							  <input type="text" value='<?=$row['berat']?>' name="berat" required="required" class="form-control col-md-7 col-xs-12">
-							</div>
-					  </div>
-
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="new">Password <span class="required">*</span>
+                        </label>
+                        <div class="col-md-2 col-sm-6 col-xs-12">
+                          <input type="password" id="new" name="pass" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rep">Repeat Password <span class="required">*</span>
+                        </label>
+                        <div class="col-md-2 col-sm-6 col-xs-12">
+                          <input type="password" id="rep" name="rep" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-danger" type="button" onclick="window.history.back()">Cancel</button>

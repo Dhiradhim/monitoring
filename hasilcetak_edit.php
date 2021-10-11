@@ -76,7 +76,7 @@ include('top.html');
 							Tanggal
 							</label>
 							<div class="col-md-2 col-sm-3 col-xs-4">
-							  <input type="date" value='<?=$row['tanggal_hasil_cetak']?>' name="tanggal_hasil_cetak" required="required" class="form-control col-md-7 col-xs-12">
+							  <input type="date" disabled value='<?=$row['tanggal_hasil_cetak']?>' name="tanggal_hasil_cetak" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
 					  <div class="form-group">

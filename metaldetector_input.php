@@ -94,26 +94,6 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Shift
-							</label>
-							<div class="col-md-1 col-sm-2 col-xs-2">
-							  	<select class="form-control" name="shift">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
-							</div>
-					  </div>
-					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Tanggal
-							</label>
-							<div class="col-md-2 col-sm-3 col-xs-4">
-							  <input type="date" name="tanggal_metal_detector" required="required" class="form-control col-md-7 col-xs-12">
-							</div>
-					  </div>
-					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Jam
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
@@ -122,31 +102,73 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Awal
+							Fe 1,5 mm
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input type="checkbox" id="awal" name="awal" value="y"> Oke
+								<input type="checkbox" id="feawal" name="feawal" value="y"> Awal
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+					  		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk"> </label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="fetengah" name="fetengah" value="y"> Tengah
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+					  		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk"> </label>					  
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="feakhir" name="feakhir" value="y"> Akhir
 							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Tengah
+							Non Fe 2,0 mm
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input type="checkbox" id="tengah" name="tengah" value="y"> Oke
+								<input type="checkbox" id="nonfeawal" name="nonfeawal" value="y"> Awal
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+					  		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk"> </label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="nonfetengah" name="nonfetengah" value="y"> Tengah
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+					  		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk"> </label>					  
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="nonfeakhir" name="nonfeakhir" value="y"> Akhir
 							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Akhir
+							SS 2,0 mm
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input type="checkbox" id="akhir" name="akhir" value="y"> Oke
+								<input type="checkbox" id="ssawal" name="ssawal" value="y"> Awal
 							</select>
 							</div>
 					  </div>
+					  <div class="form-group">
+					  		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk"> </label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="sstengah" name="sstengah" value="y"> Tengah
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+					  		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk"> </label>					  
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input type="checkbox" id="ssakhir" name="ssakhir" value="y"> Akhir
+							</select>
+							</div>
+					  </div>					  
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Jumlah Oke

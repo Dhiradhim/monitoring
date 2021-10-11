@@ -68,7 +68,23 @@ include('top.html');
 							Shift
 							</label>
 							<div class="col-md-3 col-sm-3 col-xs-4">
-							<input type="text" disabled name="dhift" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['shift'];?>>
+							<input type="text" disabled name="shift" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['shift'];?>>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Tanggal
+							</label>
+							<div class="col-md-3 col-sm-3 col-xs-4">
+							<input type="text" disabled name="dhift" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['tanggal_pengaturan_suhu'];?>>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Jam
+							</label>
+							<div class="col-md-3 col-sm-3 col-xs-4">
+							<input type="text" disabled name="dhift" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['jam_pengaturan_suhu'];?>>
 							</div>
 					  </div>
 					  <div class="form-group">

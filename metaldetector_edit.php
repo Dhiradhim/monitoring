@@ -76,7 +76,7 @@ include('top.html');
 							Tanggal
 							</label>
 							<div class="col-md-2 col-sm-3 col-xs-4">
-							  <input type="date" value='<?=$row['tanggal_metal_detector']?>' name="tanggal_metal_detector" required="required" class="form-control col-md-7 col-xs-12">
+							  <input type="date" disabled value='<?=$row['tanggal_metal_detector']?>' name="tanggal_metal_detector" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
 					  <div class="form-group">
@@ -89,10 +89,64 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Awal
+							FE 1,5 mm
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['awal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="awal" value="y"> Oke
+								<input <?php if ($row['feawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="feawal" value="y"> Oke
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							 
+							</label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input <?php if ($row['fetengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="fetengah" value="y"> Oke
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							
+							</label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input <?php if ($row['feakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="feakhir" value="y"> Oke
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							NON FE 2,0 mm
+							</label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input <?php if ($row['nonfeawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="nonfeawal" value="y"> Oke
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							
+							</label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input <?php if ($row['nonfetengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="nonfetengah" value="y"> Oke
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							
+							</label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input <?php if ($row['nonfeakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="nonfeakhir" value="y"> Oke
+							</select>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							SS 2,0 mm
+							</label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+								<input <?php if ($row['ssawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="ssawal" value="y"> Oke
 							</select>
 							</div>
 					  </div>
@@ -101,7 +155,7 @@ include('top.html');
 							Tengah
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['tengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="tengah" value="y"> Oke
+								<input <?php if ($row['sstengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="sstengah" value="y"> Oke
 							</select>
 							</div>
 					  </div>
@@ -110,7 +164,7 @@ include('top.html');
 							Akhir
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['akhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="akhir" value="y"> Oke
+								<input <?php if ($row['ssakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="ssakhir" value="y"> Oke
 							</select>
 							</div>
 					  </div>

@@ -94,14 +94,10 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Shift
+							Jam
 							</label>
-							<div class="col-md-1 col-sm-2 col-xs-2">
-							  	<select class="form-control" name="shift">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
+							<div class="col-md-1 col-sm-3 col-xs-4">
+							  <input type="time" name="jam_pengaturan_suhu" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
 					  <div class="form-group">
@@ -139,7 +135,7 @@ include('top.html');
 							<select class="form-control" name="zona_2" id="zona_2">
 								<option value="" disabled selected>-</option>
 								<?php $c2=1; do { ?>
-								<option value="<?=$c1;?>"><?=$c2;?></option>
+								<option value="<?=$c2;?>"><?=$c2;?></option>
 								<?php $c2++; } while ($c2<31);?>
 							</select>
 							</div>
@@ -152,7 +148,7 @@ include('top.html');
 							<select class="form-control" name="zona_3" id="zona_3">
 								<option value="" disabled selected>-</option>
 								<?php $c3=1; do { ?>
-								<option value="<?=$c1;?>"><?=$c3;?></option>
+								<option value="<?=$c3;?>"><?=$c3;?></option>
 								<?php $c3++; } while ($c3<31);?>
 							</select>
 							</div>
@@ -165,7 +161,7 @@ include('top.html');
 							<select class="form-control" name="zona_4" id="zona_4">
 								<option value="" disabled selected>-</option>
 								<?php $c4=1; do { ?>
-								<option value="<?=$c1;?>"><?=$c4;?></option>
+								<option value="<?=$c4;?>"><?=$c4;?></option>
 								<?php $c4++; } while ($c4<31);?>
 							</select>
 							</div>

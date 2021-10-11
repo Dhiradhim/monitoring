@@ -65,6 +65,26 @@ include('top.html');
 							 <input type="hidden" name="id" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['id'];?>>
 							</div>
 					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Tanggal
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							  <input type="date" name="tanggal_batch" required="required" class="form-control col-md-7 col-xs-12" <?=$row['tanggal_batch'];?>>
+							</div>
+					  </div>
+					  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Shift
+							</label>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+							  	<select class="form-control" name="shift">
+								<option <?php if( $row['shift']=='1'){echo "selected"; } ?> value="1">1</option>
+								<option <?php if( $row['shift']=='2'){echo "selected"; } ?> value="2">2</option>
+								<option <?php if( $row['shift']=='3'){echo "selected"; } ?> value="3">3</option>
+							</select>
+							</div>
+					  </div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-danger" type="button" onclick="window.history.back()">Cancel</button>

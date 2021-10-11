@@ -112,7 +112,7 @@ include('side1.html');?>
 						<?php
 						$date=date("Y-m-d");
 						if ($row_user['jabatan']=='operator') {
-							$query = mysqli_query($con, "SELECT * FROM hasil_cetak WHERE tanggal_hasil_cetak=$date") or die(mysqli_connect_error());
+							$query = mysqli_query($con, "SELECT * FROM hasil_cetak WHERE tanggal_hasil_cetak='$date'") or die(mysqli_connect_error());
 							$row = mysqli_fetch_assoc($query);
 							$count = 1;
 							}

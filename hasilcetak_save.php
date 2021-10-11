@@ -1,9 +1,12 @@
 <?php
 include "koneksi.php";
-$nama_produk= $_POST['nama_produk'];
 $id_produk=$_POST['id_produk'];
-$shift=$_POST['shift'];
-$tanggal_hasil_cetak=$_POST['tanggal_hasil_cetak'];
+$query = mysqli_query($con, "SELECT tanggal_batch,shift FROM batch WHERE no_batch=$id_produk") or die(mysqli_connect_error());
+$row = mysqli_fetch_assoc($query);
+$shift=$row['shift'];
+$tanggal_hasil_cetak=$row['tanggal_batch'];
+
+$nama_produk= $_POST['nama_produk'];
 $jam_hasil_cetak=$_POST['jam_hasil_cetak'];
 $standar=$_POST['standar'];
 $actual=$_POST['actual'];

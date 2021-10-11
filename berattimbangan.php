@@ -102,7 +102,7 @@ include('side1.html');?>
 						<?php
 						$date=date("Y-m-d");
 						if ($row_user['jabatan']=='operator') {
-							$query = mysqli_query($con, "SELECT DISTINCT nama_produk,id_produk,tanggal_berat_timbangan,shift FROM berat_timbangan WHERE tanggal_berat_timbangan=$date ORDER BY id") or die(mysqli_connect_error());
+							$query = mysqli_query($con, "SELECT DISTINCT nama_produk,id_produk,tanggal_berat_timbangan,shift FROM berat_timbangan WHERE tanggal_berat_timbangan='$date' ORDER BY id") or die(mysqli_connect_error());
 							$row = mysqli_fetch_assoc($query);
 							$count = 1;
 							}

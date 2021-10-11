@@ -1,7 +1,6 @@
 <?php
 include "koneksi.php";
 $id=$_POST['id'];
-$tanggal_hasil_cetak=$_POST['tanggal_hasil_cetak'];
 $jam_hasil_cetak=$_POST['jam_hasil_cetak'];
 $standar=$_POST['standar'];
 $actual=$_POST['actual'];
@@ -30,7 +29,7 @@ return $sisamenit2;
 
 $total_downtime = selisih($start_downtime,$stop_downtime);
 
-$query = "UPDATE hasil_cetak SET tanggal_hasil_cetak='$tanggal_hasil_cetak',jam_hasil_cetak='$jam_hasil_cetak',standar='$standar',actual='$actual',varian='$varian',persentase='$persentase',start_downtime='$start_downtime',stop_downtime='$stop_downtime',total_downtime='$total_downtime',deskripsi_downtime='$deskripsi_downtime',tindakan_dilakukan='$tindakan_dilakukan',tindakan_pencegahan='$tindakan_pencegahan' WHERE id='$id'";
+$query = "UPDATE hasil_cetak SET jam_hasil_cetak='$jam_hasil_cetak',standar='$standar',actual='$actual',varian='$varian',persentase='$persentase',start_downtime='$start_downtime',stop_downtime='$stop_downtime',total_downtime='$total_downtime',deskripsi_downtime='$deskripsi_downtime',tindakan_dilakukan='$tindakan_dilakukan',tindakan_pencegahan='$tindakan_pencegahan' WHERE id='$id'";
 $sql=mysqli_query($con, $query);
 echo '<script>window.location.href="hasilcetak.php?page=1&count=1"</script>';
 ?>

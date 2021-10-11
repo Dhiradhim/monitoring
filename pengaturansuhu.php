@@ -93,6 +93,8 @@ include('side1.html');?>
                                 <th><div align="center">Nama Produk</div></th>
                                 <th><div align="center">No. batch</div></th>
                                 <th><div align="center">Shift</div></th>
+                                <th><div align="center">Tanggal</div></th>
+                                <th><div align="center">Jam</div></th>
                                 <th><div align="center">Ukuran</div></th>
                                 <th><div align="center">Zona 1</div></th>
                                 <th><div align="center">Zona 2</div></th>
@@ -106,7 +108,7 @@ include('side1.html');?>
 						<?php
 						$date=date("Y-m-d");
 						if ($row_user['jabatan']=='operator') {
-							$query = mysqli_query($con, "SELECT * FROM pengaturan_suhu WHERE tanggal_pengaturan_suhu=$date") or die(mysqli_connect_error());
+							$query = mysqli_query($con, "SELECT * FROM pengaturan_suhu WHERE tanggal_pengaturan_suhu='$date'") or die(mysqli_connect_error());
 							$row = mysqli_fetch_assoc($query);
 							$count = 1;
 							}
@@ -121,6 +123,8 @@ include('side1.html');?>
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['shift']; ?></div></td>
+								<td><div align="center"><?php echo $row['tanggal_pengaturan_suhu']; ?></div></td>
+								<td><div align="center"><?php echo $row['jam_pengaturan_suhu']; ?></div></td>
 								<td><div align="center"><?php echo $row['ukuran']; ?></div></td>
 								<td><div align="center"><?php echo $row['zona_1']; ?></div></td>
 								<td><div align="center"><?php echo $row['zona_2']; ?></div></td>
