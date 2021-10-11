@@ -29,11 +29,8 @@
                 <ul class="nav side-menu">
                   <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
 				  <?php 
-				  if ($row['jabatan']=='administrator'){
+				  if ($row['jabatan']=='administrator' OR $row['jabatan']=='operator'){
 				  echo '<li><a href="produk.php"><i class="fa fa-edit"></i> Produk </a></li>';
-				  echo '<li><a href="batch.php"><i class="fa fa-edit"></i> No. Batch </a></li>';
-				  }
-				  else if ($row['jabatan']=='operator'){
 				  echo '<li><a href="batch.php"><i class="fa fa-edit"></i> No. Batch </a></li>';
 				  }
 				  ?>
