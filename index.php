@@ -17,85 +17,220 @@ include('top.html');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Summary Inventory</h3>
+                <h3>Summary Info</h3>
               </div>
-
-
             </div>
 
             <div class="clearfix"></div>
 
-				<div class="row">
-				  <div class="col-md-12">
-					<div class="">
-					  <div class="x_content">
-						<div class="row">
-						  <div class="col-md-3 col-xs-12 widget widget_tally_box">
-							<div class="x_panel fixed_height_250">
-							  <div class="x_title">
-                            
+            <div class="row">
+              <div>
+                <div class="x_panel">
+                  <div class="x_content">
+								  <h4>Data Pengaturan Suhu</h4>
+								  <table class="table" style="width: 50%">
+										<thead>
+											<tr>
+												<th><div align="center">No</div></th>
+												<th><div align="center">Nama Produk</div></th>
+												<th><div align="center">No. batch</div></th>
+												<th><div align="center">Shift</div></th>
+												<th><div align="center">Tanggal</div></th>
+												<th><div align="center">Jam</div></th>
+												<th><div align="center">Ukuran</div></th>
+												<th><div align="center">Zona 1</div></th>
+												<th><div align="center">Zona 2</div></th>
+												<th><div align="center">Zona 3</div></th>
+												<th><div align="center">Zona 4</div></th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php
+											$query = mysqli_query($con, "SELECT * FROM pengaturan_suhu ORDER BY id DESC LIMIT 1") or die(mysqli_connect_error());
+											$row = mysqli_fetch_assoc($query);
+											$query2 = mysqli_query($con, "SELECT COUNT(*) FROM pengaturan_suhu") or die(mysqli_connect_error());
+											$no= mysqli_fetch_row($query2)[0];
+											
+										do { ?>
+											<tr>
+												<td><div align="center"><?php echo $no; ?></div></td>
+												<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
+												<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
+												<td><div align="center"><?php echo $row['shift']; ?></div></td>
+												<td><div align="center"><?php echo $row['tanggal_pengaturan_suhu']; ?></div></td>
+												<td><div align="center"><?php echo $row['jam_pengaturan_suhu']; ?></div></td>
+												<td><div align="center"><?php echo $row['ukuran']; ?></div></td>
+												<td><div align="center"><?php echo $row['zona_1']; ?></div></td>
+												<td><div align="center"><?php echo $row['zona_2']; ?></div></td>
+												<td><div align="center"><?php echo $row['zona_3']; ?></div></td>
+												<td><div align="center"><?php echo $row['zona_4']; ?></div></td>
+											</tr>
+										<?php 
+										} while ($row = mysqli_fetch_assoc($query)); 
+										?>
+										 </tbody>
+									</table>
+								  <br><br>
+								  
+								  
+								  <h4>Data Berat Timbangan</h4>
+								  <table class="table" style="width: 70%">
+										<thead>
+											<tr>
+												<th><div align="center">No</div></th>
+												<th><div align="center">Nama Produk</div></th>
+												<th><div align="center">No. batch</div></th>
+												<th><div align="center">Shift</div></th>
+												<th><div align="center">Tanggal</div></th>
+												<th><div align="center">Jam</div></th>
+												<th><div align="center">Berat</div></th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php
+											$query = mysqli_query($con, "SELECT * FROM berat_timbangan ORDER BY id DESC LIMIT 1") or die(mysqli_connect_error());
+											$row = mysqli_fetch_assoc($query);
+											$query2 = mysqli_query($con, "SELECT COUNT(*) FROM berat_timbangan") or die(mysqli_connect_error());
+											$no= mysqli_fetch_row($query2)[0];
+										do { ?>
+											<tr>
+												<td><div align="center"><?php echo $no; ?></div></td>
+												<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
+												<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
+												<td><div align="center"><?php echo $row['shift']; ?></div></td>
+												<td><div align="center"><?php echo $row['tanggal_berat_timbangan']; ?></div></td>
+												<td><div align="center"><?php echo $row['jam_timbangan']; ?></div></td>
+												<td><div align="center"><?php echo $row['berat']; ?></div></td>
+											</tr>
+										<?php 
+										} while ($row = mysqli_fetch_assoc($query)); 
+										?>
+										 </tbody>
+									</table>
+								  <br><br>
+								  
+								  
+								  <h4>Data Metal Detector</h4>
+								  <table class="table" style="width: 90%">
+										<thead>
+											<tr>
+												<th><div align="center">No</div></th>
+												<th><div align="center">Nama Produk</div></th>
+												<th><div align="center">No. batch</div></th>
+												<th><div align="center">Shift</div></th>
+												<th><div align="center">Tanggal</div></th>
+												<th><div align="center">Jam</div></th>
+												<th><div align="center">Test Pieces</div></th>
+												<th><div align="center">Awal</div></th>
+												<th><div align="center">Tengah</div></th>
+												<th><div align="center">Akhir</div></th>
+												<th><div align="center">Jumlah Oke</div></th>
+												<th><div align="center">Jumlah Not Oke</div></th>
+												<th><div align="center">Nama Operator</div></th>
+												<th><div align="center">Nama Formen</div></th>
+												<th><div align="center">Nama SPV</div></th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php
+											$query = mysqli_query($con, "SELECT * FROM metal_detector ORDER BY id DESC LIMIT 1") or die(mysqli_connect_error());
+											$row = mysqli_fetch_assoc($query);
+											$query2 = mysqli_query($con, "SELECT COUNT(*) FROM metal_detector") or die(mysqli_connect_error());
+											$no= mysqli_fetch_row($query2)[0];
+													
+										do { ?>
+											<tr>
+												<td rowspan="3"><div align="center"><?php echo $no; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['nama_produk']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['id_produk']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['shift']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['tanggal_metal_detector']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['jam_metal_detector']; ?></div></td>
+												<td><div align="center">FE 1,5 mm</div></td>
+												<td><div align="center"><?php if ($row['feawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+												<td><div align="center"><?php if ($row['fetengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+												<td><div align="center"><?php if ($row['feakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['jumlah_oke']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['jumlah_not_oke']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['nama_operator']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['nama_formen']; ?></div></td>
+												<td rowspan="3"><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
+											</tr>
+										<?php 
+										} while ($row = mysqli_fetch_assoc($query)); 
+										?>
+										 </tbody>
+									</table>
+								  <br><br>
+								  <h4>Data Hasil Cetak</h4>
+									<table class="table">
+										<thead>
+											<tr>
+												<th><div align="center">No</div></th>
+												<th><div align="center">Nama Produk</div></th>
+												<th><div align="center">No. batch</div></th>
+												<th><div align="center">Shift</div></th>
+												<th><div align="center">Tanggal</div></th>
+												<th><div align="center">Jam</div></th>
+												<th><div align="center">Standar</div></th>
+												<th><div align="center">Actual</div></th>
+												<th><div align="center">Varian</div></th>
+												<th><div align="center">Persentase</div></th>
+												<th><div align="center">Start Downtime</div></th>
+												<th><div align="center">Stop Downtime</div></th>
+												<th><div align="center">Total Downtime</div></th>
+												<th><div align="center">Deskripsi Downtime</div></th>
+												<th><div align="center">Tindakan Dilakukan</div></th>
+												<th><div align="center">Tindakan Pencegahan</div></th>
+												<th><div align="center">Nama Operator</div></th>
 
-                          </div>
-                        </div>
-                      </div>	
-					  
-                      </div>					  
-					
-                      </div>
-                    </div>
+											</tr>
+										</thead>
+										<tbody>
+										<?php
+											$query = mysqli_query($con, "SELECT * FROM hasil_cetak ORDER BY id DESC LIMIT 1") or die(mysqli_connect_error());
+											$row = mysqli_fetch_assoc($query);
+											$query2 = mysqli_query($con, "SELECT COUNT(*) FROM hasil_cetak") or die(mysqli_connect_error());
+											$no= mysqli_fetch_row($query2)[0];
+										
+										do { ?>
+											<tr>
+												<td><div align="center"><?php echo $no; ?></div></td>
+												<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
+												<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
+												<td><div align="center"><?php echo $row['shift']; ?></div></td>
+												<td><div align="center"><?php echo $row['tanggal_hasil_cetak']; ?></div></td>
+												<td><div align="center"><?php echo $row['jam_hasil_cetak']; ?></div></td>
+												<td><div align="center"><?php echo $row['standar']; ?></div></td>
+												<td><div align="center"><?php echo $row['actual']; ?></div></td>
+												<td><div align="center"><?php echo $row['varian']; ?></div></td>
+												<td><div align="center"><?php echo $row['persentase']; ?> %</div></td>
+												<td><div align="center"><?php echo $row['start_downtime']; ?></div></td>
+												<td><div align="center"><?php echo $row['stop_downtime']; ?></div></td>
+												<td><div align="center"><?php echo $row['total_downtime'];?> menit</div></td>
+												<td><div align="center"><?php echo $row['deskripsi_downtime']; ?></div></td>
+												<td><div align="center"><?php echo $row['tindakan_dilakukan']; ?></div></td>
+												<td><div align="center"><?php echo $row['tindakan_pencegahan']; ?></div></td>
+												<td><div align="center"><?php echo $row['nama_operator']; ?></div></td>
+
+											</tr>
+										<?php 
+										} while ($row = mysqli_fetch_assoc($query)); 
+										?>
+										 </tbody>
+									</table>                            
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <!-- /page content -->
 		
 <?php include('footer.html');?>
       </div>
     </div>
-
-    <!-- jQuery -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="vendors/Flot/jquery.flot.js"></script>
-    <script src="vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="vendors/Flot/jquery.flot.time.js"></script>
-    <script src="vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="vendors/moment/min/moment.min.js"></script>
-    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="build/js/custom.min.js"></script>	
+	<?php include('js.html');?>
   </body>
 </html>
 

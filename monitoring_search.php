@@ -51,6 +51,8 @@ $id_produk=$_POST['id_produk'];
                                 <th><div align="center">Nama Produk</div></th>
                                 <th><div align="center">No. batch</div></th>
                                 <th><div align="center">Shift</div></th>
+                                <th><div align="center">Tanggal</div></th>
+                                <th><div align="center">Jam</div></th>
                                 <th><div align="center">Ukuran</div></th>
                                 <th><div align="center">Zona 1</div></th>
                                 <th><div align="center">Zona 2</div></th>
@@ -69,6 +71,8 @@ $id_produk=$_POST['id_produk'];
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['shift']; ?></div></td>
+								<td><div align="center"><?php echo $row['tanggal_pengaturan_suhu']; ?></div></td>
+								<td><div align="center"><?php echo $row['jam_pengaturan_suhu']; ?></div></td>
 								<td><div align="center"><?php echo $row['ukuran']; ?></div></td>
 								<td><div align="center"><?php echo $row['zona_1']; ?></div></td>
 								<td><div align="center"><?php echo $row['zona_2']; ?></div></td>
@@ -131,6 +135,7 @@ $id_produk=$_POST['id_produk'];
                                 <th><div align="center">Shift</div></th>
                                 <th><div align="center">Tanggal</div></th>
                                 <th><div align="center">Jam</div></th>
+                                <th><div align="center">Test Pieces</div></th>
                                 <th><div align="center">Awal</div></th>
                                 <th><div align="center">Tengah</div></th>
                                 <th><div align="center">Akhir</div></th>
@@ -149,21 +154,21 @@ $id_produk=$_POST['id_produk'];
 									
 						do { ?>
 							<tr>
-								<td><div align="center"><?php echo $count3; ?></div></td>
-								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
-								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
-								<td><div align="center"><?php echo $row['shift']; ?></div></td>
-								<td><div align="center"><?php echo $row['tanggal_metal_detector']; ?></div></td>
-								<td><div align="center"><?php echo $row['jam_metal_detector']; ?></div></td>
-								<td><div align="center"><?php if ($row['awal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['tengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['akhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php echo $row['jumlah_oke']; ?></div></td>
-								<td><div align="center"><?php echo $row['jumlah_not_oke']; ?></div></td>
-								<td><div align="center"><?php echo $row['nama_operator']; ?></div></td>
-								<td><div align="center"><?php echo $row['nama_formen']; ?></div></td>
-								<td><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
-								<div align="center"> </div></td>
+								<td rowspan="3"><div align="center"><?php echo $count3; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['nama_produk']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['id_produk']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['shift']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['tanggal_metal_detector']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['jam_metal_detector']; ?></div></td>
+								<td><div align="center">FE 1,5 mm</div></td>
+								<td><div align="center"><?php if ($row['feawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['fetengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['feakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['jumlah_oke']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['jumlah_not_oke']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['nama_operator']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['nama_formen']; ?></div></td>
+								<td rowspan="3"><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
 							</tr>
 						<?php 
 						$count3++;
