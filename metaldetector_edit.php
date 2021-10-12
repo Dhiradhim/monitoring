@@ -152,7 +152,7 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Tengah
+							
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
 								<input <?php if ($row['sstengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="sstengah" value="y"> Tengah
@@ -161,7 +161,7 @@ include('top.html');
 					  </div>
 					  <div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Akhir
+							
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
 								<input <?php if ($row['ssakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="ssakhir" value="y"> Akhir
