@@ -114,7 +114,7 @@ $id_produk=$_POST['id_produk'];
 								<td><div align="center"><?php echo $row['shift']; ?></div></td>
 								<td><div align="center"><?php echo $row['tanggal_berat_timbangan']; ?></div></td>
 								<td><div align="center"><?php echo $row['jam_timbangan']; ?></div></td>
-								<td><div align="center"><?php echo $row['berat']; ?></div></td>
+								<td><div align="center"><?php echo $row['berat']; ?> g</div></td>
 							</tr>
 						<?php 
 						$count2++;
