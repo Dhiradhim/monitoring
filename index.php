@@ -156,6 +156,18 @@ include('top.html');
 												<td rowspan="3"><div align="center"><?php echo $row['nama_formen']; ?></div></td>
 												<td rowspan="3"><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
 											</tr>
+											<tr>
+												<td><div align="center">NON FE 2,0 mm</div></td>
+												<td><div align="center"><?php if ($row['nonfeawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+												<td><div align="center"><?php if ($row['nonfetengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+												<td><div align="center"><?php if ($row['nonfeakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+											</tr>
+											<tr>
+												<td><div align="center">SS 2,0 mm</div></td>
+												<td><div align="center"><?php if ($row['ssawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+												<td><div align="center"><?php if ($row['sstengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+												<td><div align="center"><?php if ($row['ssakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+											</tr>
 										<?php 
 										} while ($row = mysqli_fetch_assoc($query)); 
 										?>
