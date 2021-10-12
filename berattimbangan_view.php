@@ -110,7 +110,7 @@ include('top.html');
 							<tr>
 								<td><div align="center"><?php echo $count; ?></div></td>
 								<td><div align="center"><?php echo $row['jam_timbangan']; ?></div></td>
-								<td><div align="center"><?php echo $row['berat']; ?></div></td>
+								<td><div align="center"><?php echo $row['berat']; ?> g</div></td>
 								<?php
 								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
 								echo '<td><div align="center">';
