@@ -92,7 +92,7 @@ include('top.html');
 							FE 1,5 mm
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['feawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="feawal" value="y"> Oke
+								<input <?php if ($row['feawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="feawal" value="y"> Awal
 							</select>
 							</div>
 					  </div>
@@ -101,7 +101,7 @@ include('top.html');
 							 
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['fetengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="fetengah" value="y"> Oke
+								<input <?php if ($row['fetengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="fetengah" value="y"> Tengah
 							</select>
 							</div>
 					  </div>
@@ -110,7 +110,7 @@ include('top.html');
 							
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['feakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="feakhir" value="y"> Oke
+								<input <?php if ($row['feakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="feakhir" value="y"> Akhir
 							</select>
 							</div>
 					  </div>
@@ -119,7 +119,7 @@ include('top.html');
 							NON FE 2,0 mm
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['nonfeawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="nonfeawal" value="y"> Oke
+								<input <?php if ($row['nonfeawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="nonfeawal" value="y"> Awal
 							</select>
 							</div>
 					  </div>
@@ -128,7 +128,7 @@ include('top.html');
 							
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['nonfetengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="nonfetengah" value="y"> Oke
+								<input <?php if ($row['nonfetengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="nonfetengah" value="y"> Tengah
 							</select>
 							</div>
 					  </div>
@@ -137,7 +137,7 @@ include('top.html');
 							
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['nonfeakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="nonfeakhir" value="y"> Oke
+								<input <?php if ($row['nonfeakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="nonfeakhir" value="y"> Akhir
 							</select>
 							</div>
 					  </div>
@@ -146,7 +146,7 @@ include('top.html');
 							SS 2,0 mm
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['ssawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="ssawal" value="y"> Oke
+								<input <?php if ($row['ssawal']=='y') { echo 'checked';} ?> type="checkbox" id="awal" name="ssawal" value="y"> Awal
 							</select>
 							</div>
 					  </div>
@@ -155,7 +155,7 @@ include('top.html');
 							Tengah
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['sstengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="sstengah" value="y"> Oke
+								<input <?php if ($row['sstengah']=='y') { echo 'checked';} ?> type="checkbox" id="tengah" name="sstengah" value="y"> Tengah
 							</select>
 							</div>
 					  </div>
@@ -164,7 +164,7 @@ include('top.html');
 							Akhir
 							</label>
 							<div class="col-md-1 col-sm-2 col-xs-2">
-								<input <?php if ($row['ssakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="ssakhir" value="y"> Oke
+								<input <?php if ($row['ssakhir']=='y') { echo 'checked';} ?> type="checkbox" id="akhir" name="ssakhir" value="y"> Akhir
 							</select>
 							</div>
 					  </div>
