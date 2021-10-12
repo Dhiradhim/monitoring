@@ -170,7 +170,7 @@ $id_produk=$_POST['id_produk'];
 								<td rowspan="3"><div align="center"><?php echo $row['nama_formen']; ?></div></td>
 								<td rowspan="3"><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
 							</tr>
-						<tr>
+							<tr>
 								<td><div align="center">NON FE 2,0 mm</div></td>
 								<td><div align="center"><?php if ($row['nonfeawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
 								<td><div align="center"><?php if ($row['nonfetengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
