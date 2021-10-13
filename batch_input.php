@@ -69,27 +69,6 @@ include('top.html');
 							  <input type="text" name="no_batch" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
-					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Tanggal
-							</label>
-							<div class="col-md-2 col-sm-3 col-xs-4">
-							  <input type="date" name="tanggal_batch" required="required" class="form-control col-md-7 col-xs-12">
-							</div>
-					  </div>
-					  <div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
-							Shift
-							</label>
-							<div class="col-md-1 col-sm-2 col-xs-2">
-							  	<select class="form-control" name="shift">
-								<option value="" disabled selected>-</option>								
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
-							</div>
-					  </div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-danger" type="button" onclick="window.history.back()">Cancel</button>

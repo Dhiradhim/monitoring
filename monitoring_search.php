@@ -246,7 +246,11 @@ $id_produk=$_POST['id_produk'];
 						?>
                          </tbody>
 					</table>
-					<button onclick="window.print()" class="btn btn-success">Print</button>
+					<?php 
+					if ($row_user['jabatan']=='administrator'){
+						echo '<button onclick="window.print()" class="btn btn-success">Print</button>';
+					}
+					?>
                   </div>
                 </div>
               </div>

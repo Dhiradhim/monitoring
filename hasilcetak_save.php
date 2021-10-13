@@ -1,13 +1,8 @@
 <?php
 include "koneksi.php";
 $id_produk=$_POST['id_produk'];
-$query = mysqli_query($con, "SELECT tanggal_batch,shift FROM batch WHERE no_batch=$id_produk") or die(mysqli_connect_error());
-$row = mysqli_fetch_assoc($query);
-$shift=$row['shift'];
-$tanggal_hasil_cetak=$row['tanggal_batch'];
-
+$shift=$_POST['shift'];
 $nama_produk= $_POST['nama_produk'];
-$jam_hasil_cetak=$_POST['jam_hasil_cetak'];
 $standar=$_POST['standar'];
 $actual=$_POST['actual'];
 $varian = $standar - $actual;
@@ -36,7 +31,7 @@ return $sisamenit2;
 
 $total_downtime = selisih($start_downtime,$stop_downtime);
 
-$query = "INSERT into hasil_cetak (id_produk,nama_produk,shift,tanggal_hasil_cetak,jam_hasil_cetak,standar,actual,varian,persentase,start_downtime,stop_downtime,total_downtime,deskripsi_downtime,tindakan_dilakukan,tindakan_pencegahan,nama_operator) values ('$id_produk','$nama_produk','$shift','$tanggal_hasil_cetak','$jam_hasil_cetak','$standar','$actual','$varian','$persentase','$start_downtime','$stop_downtime','$total_downtime','$deskripsi_downtime','$tindakan_dilakukan','$tindakan_pencegahan','$nama_operator')";
+$query = "INSERT into hasil_cetak (id_produk,nama_produk,shift,standar,actual,varian,persentase,start_downtime,stop_downtime,total_downtime,deskripsi_downtime,tindakan_dilakukan,tindakan_pencegahan,nama_operator) values ('$id_produk','$nama_produk','$shift','$standar','$actual','$varian','$persentase','$start_downtime','$stop_downtime','$total_downtime','$deskripsi_downtime','$tindakan_dilakukan','$tindakan_pencegahan','$nama_operator')";
 $sql=mysqli_query($con, $query);
 echo '<script>window.location.href="hasilcetak.php?page=1&count=1"</script>';
 ?>

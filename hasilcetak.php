@@ -78,11 +78,11 @@ include('side1.html');?>
                   <div class="x_content">
 					<table class="table"
 					<?php
-					if ($row_user['jabatan']=='operator') {	
-						echo 'id="datatable">';
+					if ($row_user['jabatan']=='administrator') {	
+						echo 'id="datatable-buttons">';
 					}
 					else {
-						echo 'id="datatable-buttons">';
+						echo 'id="datatable">';
 					}
 					?>
 						<thead>

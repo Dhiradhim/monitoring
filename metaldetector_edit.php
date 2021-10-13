@@ -67,8 +67,12 @@ include('top.html');
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Shift
 							</label>
-							<div class="col-md-3 col-sm-3 col-xs-4">
-							<input type="text" disabled name="dhift" required="required" class="form-control col-md-7 col-xs-12" value=<?=$row['shift'];?>>
+							<div class="col-md-1 col-sm-2 col-xs-2">
+							  	<select class="form-control" name="shift">
+								<option <?php if( $row['shift']=='1'){echo "selected"; } ?> value="1">1</option>
+								<option <?php if( $row['shift']=='2'){echo "selected"; } ?> value="2">2</option>
+								<option <?php if( $row['shift']=='3'){echo "selected"; } ?> value="2">3</option>
+							</select>
 							</div>
 					  </div>
 					  <div class="form-group">
@@ -84,7 +88,7 @@ include('top.html');
 							Jam
 							</label>
 							<div class="col-md-1 col-sm-3 col-xs-4">
-							  <input type="time" value='<?=$row['jam_metal_detector']?>' name="jam_metal_detector" required="required" class="form-control col-md-7 col-xs-12">
+							  <input type="time" disabled value='<?=$row['jam_metal_detector']?>' name="jam_metal_detector" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
 					  <div class="form-group">

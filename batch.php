@@ -78,8 +78,6 @@ include('side1.html');?>
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>
-                                <th><div align="center">Tanggal</div></th>
-                                <th><div align="center">Shift</div></th>
                                 <th><div align="center">Nama Produk</div></th>
                                 <th><div align="center">No. batch</div></th>
                                 <th><div align="center">Action</div></th>
@@ -96,8 +94,6 @@ include('side1.html');?>
 						do { ?>
 							<tr>
 								<td><div align="center"><?php echo $count; ?></div></td>
-								<td><div align="center"><?php echo $row['tanggal_batch']; ?></div></td>
-								<td><div align="center"><?php echo $row['shift']; ?></div></td>
 								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
 								<td><div align="center"><?php echo $row['no_batch']; ?></div></td>
 								<td>

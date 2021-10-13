@@ -80,11 +80,11 @@ include('side1.html');?>
                   <div class="x_content">
 					<table class="table" 
 					<?php
-					if ($row_user['jabatan']=='operator') {	
-						echo 'id="datatable">';
+					if ($row_user['jabatan']=='administrator') {	
+						echo 'id="datatable-buttons">';
 					}
 					else {
-						echo 'id="datatable-buttons">';
+						echo 'id="datatable">';
 					}
 					?>
 						<thead>
@@ -105,7 +105,6 @@ include('side1.html');?>
                                 <th><div align="center">Nama Formen</div></th>
                                 <th><div align="center">Nama SPV</div></th>
                                 <th><div align="center">Action</div></th>
-                                <th><div align="center"> </div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -149,7 +148,6 @@ include('side1.html');?>
 									
 								}
 								?>
-								<td rowspan="3"><div align="center"> </div></td>
 							</tr>
 							<tr>
 								<td><div align="center">NON FE 2,0 mm</div></td>
