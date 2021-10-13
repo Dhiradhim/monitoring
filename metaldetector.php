@@ -99,6 +99,14 @@ include('side1.html');?>
                                 <th><div align="center">Awal</div></th>
                                 <th><div align="center">Tengah</div></th>
                                 <th><div align="center">Akhir</div></th>
+                                <th><div align="center">Test Pieces</div></th>
+                                <th><div align="center">Awal</div></th>
+                                <th><div align="center">Tengah</div></th>
+                                <th><div align="center">Akhir</div></th>
+                                <th><div align="center">Test Pieces</div></th>
+                                <th><div align="center">Awal</div></th>
+                                <th><div align="center">Tengah</div></th>
+                                <th><div align="center">Akhir</div></th>								
                                 <th><div align="center">Jumlah Oke</div></th>
                                 <th><div align="center">Jumlah Not Oke</div></th>
                                 <th><div align="center">Nama Operator</div></th>
@@ -122,44 +130,36 @@ include('side1.html');?>
 						}						
 						do { ?>
 							<tr>
-								<td rowspan="3"><div align="center"><?php echo $count; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['nama_produk']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['id_produk']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['shift']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['tanggal_metal_detector']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['jam_metal_detector']; ?></div></td>
+								<td><div align="center"><?php echo $count; ?></div></td>
+								<td><div align="center"><?php echo $row['nama_produk']; ?></div></td>
+								<td><div align="center"><?php echo $row['id_produk']; ?></div></td>
+								<td><div align="center"><?php echo $row['shift']; ?></div></td>
+								<td><div align="center"><?php echo $row['tanggal_metal_detector']; ?></div></td>
+								<td><div align="center"><?php echo $row['jam_metal_detector']; ?></div></td>
 								<td><div align="center">FE 1,5 mm</div></td>
-								<td><div align="center"><?php if ($row['feawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['fetengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['feakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['jumlah_oke']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['jumlah_not_oke']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['nama_operator']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['nama_formen']; ?></div></td>
-								<td rowspan="3"><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
-								<td rowspan="3"><div align="center">
+								<td><div align="center"><?php if ($row['feawal']=='y') { echo 'ok'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['fetengah']=='y') { echo 'ok'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['feakhir']=='y') { echo 'ok'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center">NON FE 2,0 mm</div></td>
+								<td><div align="center"><?php if ($row['nonfeawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['nonfetengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['nonfeakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center">SS 2,0 mm</div></td>
+								<td><div align="center"><?php if ($row['ssawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['sstengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php if ($row['ssakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
+								<td><div align="center"><?php echo $row['jumlah_oke']; ?></div></td>
+								<td><div align="center"><?php echo $row['jumlah_not_oke']; ?></div></td>
+								<td><div align="center"><?php echo $row['nama_operator']; ?></div></td>
+								<td><div align="center"><?php echo $row['nama_formen']; ?></div></td>
+								<td><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
+								<td><div align="center">
 								<?php
 								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
 								echo '<a href="metaldetector_edit.php?id='.$row['id'].'" title="Edit"> <img src="images/application_form_edit.png" width="16" height="16" /></a>  ';
 								echo '<a href="metaldetector_delete.php?id='.$row['id'].'" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>';
 								}
-								else
-								{
-									
-								}
 								?>
-							</tr>
-							<tr>
-								<td><div align="center">NON FE 2,0 mm</div></td>
-								<td><div align="center"><?php if ($row['nonfeawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['nonfetengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['nonfeakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-							</tr>
-							<tr>
-								<td><div align="center">SS 2,0 mm</div></td>
-								<td><div align="center"><?php if ($row['ssawal']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['sstengah']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
-								<td><div align="center"><?php if ($row['ssakhir']=='y') { echo '<input type="checkbox" checked disabled>'; } else {echo '<input type="checkbox" disabled>';}; ?></div></td>
 							</tr>
 						<?php 
 						$count++;
