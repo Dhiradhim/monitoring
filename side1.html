@@ -41,7 +41,11 @@
 				  <li><a href="berattimbangan.php"><i class="fa fa-edit"></i> Berat Timbangan </a></li>
 				  <li><a href="metaldetector.php"><i class="fa fa-edit"></i> Metal Detector </a></li>
 				  <li><a href="hasilcetak.php"><i class="fa fa-edit"></i> Hasil Cetak </a></li>
-				  <li><a href="hasilmonitoring.php"><i class="fa fa-edit"></i> Hasil Monitoring </a></li>'
+				  <li><a href="hasilmonitoring.php"><i class="fa fa-edit"></i> Hasil Monitoring </a></li>
+				  <?php if ($row['jabatan']=='administrator' OR $row['jabatan']=='operator'){
+				  ?>
+				  <li><a href="cetak_laporan.php"><i class="fa fa-edit"></i> Cetak Laporan </a></li>
+				  <?php } ?>
                 </ul>
               </div>
 
