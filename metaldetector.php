@@ -78,15 +78,7 @@ include('side1.html');?>
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<table class="table" 
-					<?php
-					if ($row_user['jabatan']=='administrator') {	
-						echo 'id="datatable-buttons">';
-					}
-					else {
-						echo 'id="datatable">';
-					}
-					?>
+					<table class="table" id="datatable">
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>

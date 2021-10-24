@@ -74,13 +74,12 @@ include('side1.html');?>
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<table class="table" id="datatable-buttons">
+					<table class="table" id="datatable">
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>
                                 <th><div align="center">Nama Produk</div></th>
                                 <th><div align="center">Action</div></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,7 +98,6 @@ include('side1.html');?>
 								<a href="produk_edit.php?id=<?=$row['id']?>" title="Edit"><img src="images/application_form_edit.png" width="16" height="16" /></a>  
 								<a href="produk_delete.php?id=<?=$row['id']?>" class="delete" title="Delete"><img src="images/application_delete.png" width="16" height="16" /></a>
 								</div></td>
-								<td></td>
 							</tr>
 						<?php 
 						$count++;

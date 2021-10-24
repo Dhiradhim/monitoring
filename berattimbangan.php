@@ -78,15 +78,7 @@ include('side1.html');?>
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<table class="table" 					
-					<?php
-					if ($row_user['jabatan']=='administrator') {	
-						echo 'id="datatable-buttons">';
-					}
-					else {
-						echo 'id="datatable">';
-					}
-					?>
+					<table class="table" id="datatable">
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>
@@ -95,7 +87,6 @@ include('side1.html');?>
 								<th><div align="center">Tanggal</div></th>
                                 <th><div align="center">Shift</div></th>
                                 <th><div align="center">Action</div></th>
-                                <th><div align="center"> </div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -121,7 +112,6 @@ include('side1.html');?>
 								<td><div align="center">
 								<a href="berattimbangan_view.php?nama_produk=<?=$row['nama_produk']?>&id_produk=<?=$row['id_produk']?>&tanggal_berat_timbangan=<?=$row['tanggal_berat_timbangan']?>&shift=<?=$row['shift']?>" title="View"> <img src="images/application.png" width="16" height="16" /></a>  
 								</div></td>
-								<td><div align="center"> </div></td>
 							</tr>
 						<?php 
 						$count++;

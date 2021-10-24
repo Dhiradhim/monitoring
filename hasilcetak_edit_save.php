@@ -11,6 +11,8 @@ $stop_downtime=$_POST['stop_downtime'];
 $deskripsi_downtime=$_POST['deskripsi_downtime'];
 $tindakan_dilakukan=$_POST['tindakan_dilakukan'];
 $tindakan_pencegahan=$_POST['tindakan_pencegahan'];
+$nama_formen=$_POST['nama_formen'];
+$nama_supervisor=$_POST['nama_supervisor'];
 
 function selisih($start_downtime,$stop_downtime) 
 { 
@@ -29,7 +31,7 @@ return $sisamenit2;
 
 $total_downtime = selisih($start_downtime,$stop_downtime);
 
-$query = "UPDATE hasil_cetak SET shift='$shift',standar='$standar',actual='$actual',varian='$varian',persentase='$persentase',start_downtime='$start_downtime',stop_downtime='$stop_downtime',total_downtime='$total_downtime',deskripsi_downtime='$deskripsi_downtime',tindakan_dilakukan='$tindakan_dilakukan',tindakan_pencegahan='$tindakan_pencegahan' WHERE id='$id'";
+$query = "UPDATE hasil_cetak SET shift='$shift',standar='$standar',actual='$actual',varian='$varian',persentase='$persentase',start_downtime='$start_downtime',stop_downtime='$stop_downtime',total_downtime='$total_downtime',deskripsi_downtime='$deskripsi_downtime',tindakan_dilakukan='$tindakan_dilakukan',tindakan_pencegahan='$tindakan_pencegahan',nama_formen='$nama_formen',nama_supervisor='$nama_supervisor' WHERE id='$id'";
 $sql=mysqli_query($con, $query);
 echo '<script>window.location.href="hasilcetak.php?page=1&count=1"</script>';
 ?>

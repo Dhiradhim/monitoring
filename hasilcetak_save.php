@@ -13,6 +13,8 @@ $deskripsi_downtime=$_POST['deskripsi_downtime'];
 $tindakan_dilakukan=$_POST['tindakan_dilakukan'];
 $tindakan_pencegahan=$_POST['tindakan_pencegahan'];
 $nama_operator=$_POST['nama_operator'];
+$nama_formen=$_POST['nama_formen'];
+$nama_supervisor=$_POST['nama_supervisor'];
 
 function selisih($start_downtime,$stop_downtime) 
 { 
@@ -31,7 +33,7 @@ return $sisamenit2;
 
 $total_downtime = selisih($start_downtime,$stop_downtime);
 
-$query = "INSERT into hasil_cetak (id_produk,nama_produk,shift,standar,actual,varian,persentase,start_downtime,stop_downtime,total_downtime,deskripsi_downtime,tindakan_dilakukan,tindakan_pencegahan,nama_operator) values ('$id_produk','$nama_produk','$shift','$standar','$actual','$varian','$persentase','$start_downtime','$stop_downtime','$total_downtime','$deskripsi_downtime','$tindakan_dilakukan','$tindakan_pencegahan','$nama_operator')";
+$query = "INSERT into hasil_cetak (id_produk,nama_produk,shift,standar,actual,varian,persentase,start_downtime,stop_downtime,total_downtime,deskripsi_downtime,tindakan_dilakukan,tindakan_pencegahan,nama_operator,nama_formen,nama_supervisor) values ('$id_produk','$nama_produk','$shift','$standar','$actual','$varian','$persentase','$start_downtime','$stop_downtime','$total_downtime','$deskripsi_downtime','$tindakan_dilakukan','$tindakan_pencegahan','$nama_operator','$nama_formen','$nama_supervisor')";
 $sql=mysqli_query($con, $query);
 echo '<script>window.location.href="hasilcetak.php?page=1&count=1"</script>';
 ?>

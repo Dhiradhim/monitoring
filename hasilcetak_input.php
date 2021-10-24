@@ -127,7 +127,7 @@ include('top.html');
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Start Downtime
 							</label>
-							<div class="col-md-1 col-sm-3 col-xs-4">
+							<div class="col-md-2 col-sm-3 col-xs-4">
 							  <input type="time" name="start_downtime" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
@@ -135,7 +135,7 @@ include('top.html');
 							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
 							Stop Downtime
 							</label>
-							<div class="col-md-1 col-sm-3 col-xs-4">
+							<div class="col-md-2 col-sm-3 col-xs-4">
 							  <input type="time" name="stop_downtime" required="required" class="form-control col-md-7 col-xs-12">
 							</div>
 					  </div>
@@ -161,6 +161,42 @@ include('top.html');
 							</label>
 							<div class="col-md-4 col-sm-3 col-xs-4">
 							  <input type="text" name="tindakan_pencegahan" required="required" class="form-control col-md-7 col-xs-12" >
+							</div>
+					  </div>
+					  <div class="form-group">
+					  <?php
+						include('koneksi.php');
+						$query3 = mysqli_query($con, "SELECT * FROM login WHERE jabatan='Formen'") or die(mysqli_connect_error());
+						$row3 = mysqli_fetch_assoc($query3);
+					  ?>
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Nama Formen
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							<select class="form-control" name="nama_formen" id="nama_formen">
+								<option value="" disabled selected>-</option>
+								<?php do { ?>
+								<option value="<?=$row3['username'];?>"><?=$row3['username'];?></option>
+								<?php } while ($row3= mysqli_fetch_assoc($query3));?>
+							</select>
+							</div>
+					  </div>
+                      <div class="form-group">
+					  <?php
+						include('koneksi.php');
+						$query2 = mysqli_query($con, "SELECT * FROM login WHERE jabatan='Supervisor'") or die(mysqli_connect_error());
+						$row2 = mysqli_fetch_assoc($query2);
+					  ?>
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_produk">
+							Nama Supervisor
+							</label>
+							<div class="col-md-2 col-sm-3 col-xs-4">
+							<select class="form-control" name="nama_supervisor" id="nama_supervisor">
+								<option value="" disabled selected>-</option>
+								<?php do { ?>
+								<option value="<?=$row2['username'];?>"><?=$row2['username'];?></option>
+								<?php } while ($row2= mysqli_fetch_assoc($query2));?>
+							</select>
 							</div>
 					  </div>
 					  <?php

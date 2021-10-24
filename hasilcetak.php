@@ -76,15 +76,7 @@ include('side1.html');?>
               <div>
                 <div class="x_panel">
                   <div class="x_content">
-					<table class="table"
-					<?php
-					if ($row_user['jabatan']=='administrator') {	
-						echo 'id="datatable-buttons">';
-					}
-					else {
-						echo 'id="datatable">';
-					}
-					?>
+					<table class="table" id="datatable">
 						<thead>
                             <tr>
                                 <th><div align="center">No</div></th>
@@ -103,9 +95,10 @@ include('side1.html');?>
                                 <th><div align="center">Deskripsi Downtime</div></th>
                                 <th><div align="center">Tindakan Dilakukan</div></th>
                                 <th><div align="center">Tindakan Pencegahan</div></th>
-                                <th><div align="center">Nama Operator</div></th>
+                                <th><div align="center">Operator</div></th>
+                                <th><div align="center">Formen</div></th>
+                                <th><div align="center">Supervisor</div></th>
                                 <th><div align="center">Action</div></th>
-                                <th><div align="center"> </div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -140,6 +133,8 @@ include('side1.html');?>
 								<td><div align="center"><?php echo $row['tindakan_dilakukan']; ?></div></td>
 								<td><div align="center"><?php echo $row['tindakan_pencegahan']; ?></div></td>
 								<td><div align="center"><?php echo $row['nama_operator']; ?></div></td>
+								<td><div align="center"><?php echo $row['nama_formen']; ?></div></td>
+								<td><div align="center"><?php echo $row['nama_supervisor']; ?></div></td>
 								<td><div align="center">
 								<?php
 								if ($row_user['jabatan']=='administrator' OR $row_user['jabatan']=='operator') {	
@@ -151,7 +146,6 @@ include('side1.html');?>
 									
 								}
 								?>
-								<td><div align="center"> </div></td>
 							</tr>
 						<?php 
 						$count++;
