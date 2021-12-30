@@ -466,13 +466,15 @@
                                 <th><div align="center">Tindakan Dilakukan</div></th>
                                 <th><div align="center">Tindakan Pencegahan</div></th>
                                 <th><div align="center">Nama Operator</div></th>
-
                             </tr>
                         </thead>
                         <tbody>
 						<?php
 							$query = mysqli_query($con, "SELECT * FROM hasil_cetak WHERE id_produk=$id_produk") or die(mysqli_connect_error());
 							$row = mysqli_fetch_assoc($query);
+							$op = $row['nama_operator'];
+							$fm = $row['nama_formen'];
+							$spv = $row['nama_supervisor'];
 							$count4 = 1;
 						
 						do { ?>
@@ -502,7 +504,31 @@
 						?>
                          </tbody>
 					</table>
-					
+				<center>
+				<table style="height: 76px; width: 716px;">
+				<tbody>
+				<tr>
+				<td style="width: 186px;"><div align="center">
+				<p>Operator</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p><?=$op;?></p></div>
+				</td>
+				<td style="width: 357.467px;"><div align="center">
+				<p>Formen</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p><?=$fm;?></p></div></td>
+				<td style="width: 186px;"><div align="center">
+				<p>Supervisor</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p><?=$spv;?></p></div>
+				</td>
+				</tr>
+				</tbody>
+				</table>
+				</center>
 				<script>
 					window.print();
 					window.close();
